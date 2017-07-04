@@ -1,0 +1,94 @@
+<div class="widgets">
+	<div>
+		<ba-card baCardClass="with-scroll">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group" id="emp">
+						<label for="employee-number">Employee Number</label>
+						<i class="icon-person-add text-input-icon"></i>
+						<input id="employee-number" style="text-align:center" type="text" class="form-control" placeholder="Employee number" value="{{curr_code}}" readonly>
+					</div>
+					<div class="form-group" id="job" style="display:none">
+						<label for="employee-number">Job Number</label>
+						<i class="icon-person-add text-input-icon"></i>
+						<input id="job-number" style="text-align:center" class="form-control" placeholder="Job number" value="{{curr_code}}" readonly>
+					</div>
+					<div class="form-group" id="wc" style="display:none">
+						<label for="wc-number">Work Center</label>
+						<select style="width:100%;height:40px;background-color: #b4e391;" class="form-control" id="wc-number" >
+						  <option *ngFor='let workcenter of workcenters | async' value={{workcenter.workcenter}}>{{workcenter.workcenter_desc}}</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="section-block" id="section1">
+			              <p>Status</p>
+			              <p>{{status_emp}}</p>
+			              <p>{{status_clock_on}}</p>
+			              <p>{{status_time}}</p>
+			              <p>{{status_date}}</p>
+			        </div>
+			        <div class="section-block" id="section2" style="display:none">
+			              <label for="onoffswitch">Finish Job</label>
+			              <div class="onoffswitch">
+						    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" data-id="1" id="myonoffswitch" value=1 checked >
+						    <label class="onoffswitch-label" for="myonoffswitch">
+						        <span class="onoffswitch-inner-clock"></span>
+						        <span class="onoffswitch-switch"></span>
+						    </label>
+						  </div>
+
+						  <div class="new-empty-line">
+			              <button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffJob($event)">Clock Off Job</button>
+			              <button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffDay($event)">Clock Off Day</button>
+			              </div>
+			        </div>
+				</div>
+			</div>
+			
+		
+			</ba-card>
+	
+
+<div class="new-empty-line"></div>
+
+<input type="hidden" id="kp_mod" value="">
+            <input type="hidden" id="clock_type" value="0">
+            <input type="hidden" id="pm" value="">
+            <input type="hidden" id="validemp" value="">
+            <input type="hidden" id="empno" value="">
+            <input type="hidden" id="empname" value="">
+            <input type="hidden" id="div" value="">
+            <input type="hidden" id="allowadj" value="">
+            <input type="hidden" id="partmat" value="">
+            <input type="hidden" id="validpartmat" value="">
+            <input type="hidden" id="kp_input_type" value="2">
+<table border="1" bordercolor="white" style="margin: 0px auto;">
+<tr>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="One($event)">1</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Two($event)">2</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Three($event)">3</button></td>
+	<td><button class="btn btn-sq btn-success" style="width:38px;height:50px" (click)="Quit($event)">Quit</button>
+	<button class="btn btn-sq btn-success" style="width:38px;height:50px" (click)="Next($event)">Next</button></td>
+</tr>
+<tr>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Four($event)">4</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Five($event)">5</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Six($event)">6</button></td>
+	<td><button class="btn btn-sq btn-warning" id="status" style="width:80px;height:50px" (click)="Status($event)">Status</button></td>
+</tr>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Seven($event)">7</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Eight($event)">8</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Nine($event)">9</button></td>
+	<td><button class="btn btn-sq btn-danger" style="width:80px;height:50px" (click)="Clear($event)">Clear</button></td>
+<tr>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Minus($event)">-</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Zero($event)">0</button></td>
+	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Add($event)">+</button></td>
+	<td><button class="btn btn-sq btn-danger" style="width:80px;height:50px" (click)="Delete($event)">CE</button></td>
+</tr>
+</table>
+
+	</div>
+</div>

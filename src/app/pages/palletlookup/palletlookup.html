@@ -1,0 +1,45 @@
+<div class="widgets">
+	<ba-card >
+		<div class="row show-grid ng-scope">
+			<div class="col-4 col-xs-4 col-sm-4">
+				<label class="radio-inline custom-radio nowrap">
+					<input type="radio" name="inlineRadioOptions" id="radio1" value="Pallet" (click)="radio_stock($event)">
+					<span>Pallet</span>
+				</label>
+			</div>
+			<div class="col-4 col-xs-4 col-sm-4">
+				<label class="radio-inline custom-radio nowrap">
+					<input type="radio" name="inlineRadioOptions" id="radio2" value="Job" (click)="radio_stock($event)">
+					<span>Job</span>
+				</label>
+			</div>
+			<div class="col-4 col-xs-4 col-sm-4">
+				<label class="radio-inline custom-radio nowrap">
+					<input type="radio" name="inlineRadioOptions" id="radio3" value="Location" (click)="radio_stock($event)">
+					<span>Loc</span>
+				</label>
+			</div>
+		</div>
+	</ba-card>
+	<ba-card >
+		<div class="row">
+			<div class="col-xs-8 col-md-6">
+				<input style="width:150px;height:40px;text-transform:uppercase" type="text" class="form-control" id="codeField" [placeholder]="markup" [(ngModel)]="codeField">
+			</div>
+			<div class="col-xs-4 col-md-6">
+				<label class="radio-inline custom-radio nowrap">
+					<button style="width:70px;height:40px" type="button" id="in" class="btn btn-info" (click)="check($event)"> Search </button>
+				</label>
+			</div>
+		</div>
+	</ba-card>
+</div>
+<div id="table" style="display: none;">
+	<ba-card>
+			<div class="row" >
+				<ba-card baCardClass="with-scroll">
+					<ng2-smart-table [settings]="settings1" [source]="source1"></ng2-smart-table>
+				</ba-card>
+			</div>
+	</ba-card>
+</div>

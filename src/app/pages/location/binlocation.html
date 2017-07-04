@@ -1,0 +1,35 @@
+<div class="widgets">
+	<div>
+		<ba-card baCardClass="with-scroll">
+			<div class="form-group">
+				<label for="inputBarcode">Barcode</label>
+				<input type="text" class="form-control" id="inputBarcode" placeholder="Barcode" [(ngModel)]="inputBarcode">
+			</div>
+			<div class="form-group">
+				<label for="inputBinLocation">Bin Location</label>
+				<input type="text" class="form-control" id="inputBinLocation" placeholder="Bin Location" [(ngModel)]="inputBinLocation">
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<div class="button-wrapper">
+						<button type="button" id="in" class="btn btn-success btn-lg button-full-width" (click)="button_IN($event)">IN</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<div class="button-wrapper">
+							<button type="button" id="out" class="btn btn-danger btn-lg button-full-width" (click)="button_OUT($event)">OUT</button>
+						</div>
+					</div>
+				</div>
+			</div>  
+
+		</ba-card>
+	</div>
+</div>
+
+

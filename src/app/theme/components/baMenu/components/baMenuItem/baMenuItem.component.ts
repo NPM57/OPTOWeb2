@@ -12,6 +12,7 @@ export class BaMenuItem {
 
   @Output() itemHover = new EventEmitter<any>();
   @Output() toggleSubMenu = new EventEmitter<any>();
+  @Output() hideMenuItem = new EventEmitter<any>();
 
   public onHoverItem($event):void {
     this.itemHover.emit($event);
@@ -22,4 +23,7 @@ export class BaMenuItem {
     this.toggleSubMenu.emit($event);
     return false;
   }
-}
+
+  public collaspedMenu($event):void{
+    this.hideMenuItem.emit($event);
+  }}

@@ -1,0 +1,18 @@
+import { Routes, RouterModule }  from '@angular/router';
+
+import { ModuleWithProviders } from '@angular/core';
+
+import { ClockOn } from './clockon.component'
+
+// noinspection TypeScriptValidateTypes
+export const routes: Routes = [
+  {
+    path: '',
+    component: ClockOn,
+    children: [
+      //{ path: 'details', component: ClientDetails }
+    ],
+  }
+];
+
+export const routing = RouterModule.forChild(routes);

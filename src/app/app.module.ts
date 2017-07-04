@@ -17,6 +17,9 @@ import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 
+// Auth Service
+import {AuthService} from "./shared/services/auth.service";
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -28,6 +31,18 @@ export type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,
   disposeOldHosts: () => void
+};
+
+export interface AppConfig {
+  BASE_URL:string,
+  APP_ID:string,
+  APP_PASSWORD:string
+}
+
+export const APPCONFIG:AppConfig = {
+  BASE_URL: 'http://192.168.222.13:8000',
+  APP_ID: 'OPTO',
+  APP_PASSWORD: 'opto',
 };
 
 /**
@@ -50,7 +65,9 @@ export type StoreType = {
     routing
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AuthService,
+    {provide:'APP_CONFIG_TOKEN', useValue:APPCONFIG}
   ]
 })
 

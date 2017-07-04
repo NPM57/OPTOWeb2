@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 
 import { Login } from './login.component';
+import {UserService} from "../../shared/services/user.service";
+import {AuthService} from "../../shared/services/auth.service";
 import { routing }       from './login.routing';
 
 
@@ -19,6 +21,9 @@ import { routing }       from './login.routing';
   ],
   declarations: [
     Login
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class LoginModule {}

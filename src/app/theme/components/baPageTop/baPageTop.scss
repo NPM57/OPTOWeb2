@@ -23,6 +23,33 @@
       background-color: rgba(black, 0.85)
     }
   }
+.logout {
+  color: $sidebar-text;
+  display: block;
+  font-size: 24px;
+  font-family: $font-family;
+  white-space: nowrap;
+  float: right;
+  outline: none !important;
+  line-height: 60px;
+   span {
+    color: $primary;
+  }
+}
+
+.heading-title {
+  color: $sidebar-text;
+  display: block;
+  font-size: 24px;
+  font-family: $font-family;
+  white-space: nowrap;
+  float: left;
+  outline: none !important;
+  line-height: 60px;
+   span {
+    color: $primary;
+  }
+}
 
   a.al-logo {
     color: $sidebar-text;

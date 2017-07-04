@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
+import {layoutSizes} from '../../../theme';
 
 import { BaMenuService } from '../../services';
 import { GlobalState } from '../../../global.state';
@@ -82,5 +83,12 @@ export class BaMenu {
     }
 
     return false;
+  }
+
+   public hideMenu($event): void{
+    if(window.innerWidth <= layoutSizes.resWidthCollapseSidebar){
+      // this.hideSideBarVal.next(true);
+      this._state.notifyDataChanged('menu.isCollapsed', true);
+    }
   }
 }

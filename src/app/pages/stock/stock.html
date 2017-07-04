@@ -1,0 +1,99 @@
+<div class="widgets">
+	<div>
+		<ba-card baCardClass="with-scroll">
+
+			<!--<div class="row">
+				<div class="col-sm-4 col-xs-6 col-lg-4 col-md-6">
+					<div class="btn-group flex-dropdown" dropdown>
+						<button type="button" class="btn btn-warning" id="divisionBtn">Division</button>
+						<button type="button" class="btn btn-warning" dropdownToggle addToggleClass="true">
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" dropdownMenu>
+							<li *ngFor='let division of divisions | async' class="dropdown-item"><option (click)="button_division($event)">{{division.code}}</option></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4 col-xs-6 col-lg-4 col-md-6">
+					<div class="btn-group flex-dropdown" dropdown>
+						<button type="button" class="btn btn-warning" id="employeeBtn">Employee</button>
+						<button type="button" class="btn btn-warning" dropdownToggle addToggleClass="true">
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" dropdownMenu>
+							<li *ngFor='let employee of employees | async' class="dropdown-item"><option (click)="button_employee($event)">{{employee.name}}</option></li>
+						</ul>
+					</div>
+				</div>
+			</div>-->
+
+			<div class="row">
+				<div class="col-md-4" style="width:100%">
+					<label for="select_divisions">Division</label>
+					<select style="width:100%;height:40px;background-color: #b4e391;" id="select_divisions">
+					  <option *ngFor='let division of divisions | async' value={{division.code}}>{{division.description}}</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4" style="width:100%">
+					<label for="select_employees">Employee</label>
+					<select style="width:100%;height:40px;background-color: #b4e391;" id="select_employees">
+					  <option *ngFor='let employee of employees | async' value={{employee.code}}>{{employee.name}}</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				 <div class="col-md-4">
+					<label for="inlineRadioOptions">Stock type</label>
+				</div>
+			</div>
+			<div class="row">
+			    <div class="col-md-4">
+			      <label class="radio-inline custom-radio nowrap">
+			        <input type="radio" name="inlineRadioOptions" id="stockInOut" value="inout" (click)="radio_stock($event)">
+			        <span>Stock In/Out</span>
+			      </label>
+			    </div>
+			    <div class="col-md-4">
+			      <label class="radio-inline custom-radio nowrap">
+			        <input type="radio" name="inlineRadioOptions" id="stockAdjustment" value="adjustment" (click)="radio_stock($event)">
+			        <span>Stock Adjustment</span>
+			      </label>
+			    </div>
+		    	<div class="col-md-4">
+			      <label class="radio-inline custom-radio nowrap">
+			        <input type="radio" name="inlineRadioOptions" id="stockTake" value="take" (click)="radio_stock($event)">
+			        <span>Stock Take</span>
+			      </label>
+			    </div>
+		    </div>
+		    <br>
+			<div class="form-group">
+				<label for="inputBarcode">Barcode <font color="#993333"> {{noti}}</font></label>
+				<input type="text" class="form-control" id="inputBarcode" placeholder="Barcode" [(ngModel)]="inputBarcode" (keyup.enter)="detectBarcode($event)">
+			</div>
+			<div class="form-group">
+				<label for="inputCode">Material/Part Code</label>
+				<input type="text" class="form-control" id="inputCode" placeholder="Material/Part Code" [(ngModel)]="inputCode" (keyup.enter)="detectBarcode($event)" disabled>
+			</div>
+			<div class="form-group">
+				<label for="inputOnHand">On Hand</label>
+				<input type="text" class="form-control" id="inputOnHand" placeholder="On Hand" (keyup.enter)="process($event)"  [(ngModel)]="inputOnHand">
+			</div>
+
+			<div class="form-group">
+				<div class="button-wrapper">
+					<button type="button" class="btn btn-success btn-lg button-full-width" (click)="process($event)">Process</button>
+				</div>
+			</div>
+		</ba-card>
+	</div>
+</div>
+
+

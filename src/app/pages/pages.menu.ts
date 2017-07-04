@@ -1,354 +1,196 @@
 export const PAGES_MENU = [
-  {
-    path: 'pages',
-    children: [
-      {
-        path: 'dashboard',
-        data: {
-          menu: {
-            title: 'general.menu.dashboard',
-            icon: 'ion-android-home',
-            selected: false,
-            expanded: false,
-            order: 0
-          }
-        }
-      },
-      {
-        path: 'editors',
-        data: {
-          menu: {
-            title: 'general.menu.editors',
-            icon: 'ion-edit',
-            selected: false,
-            expanded: false,
-            order: 100,
-          }
-        },
-        children: [
-          {
-            path: 'ckeditor',
-            data: {
-              menu: {
-                title: 'general.menu.ck_editor',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: 'components',
-        data: {
-          menu: {
-            title: 'general.menu.components',
-            icon: 'ion-gear-a',
-            selected: false,
-            expanded: false,
-            order: 250,
-          }
-        },
-        children: [
-          {
-            path: 'treeview',
-            data: {
-              menu: {
-                title: 'general.menu.tree_view',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: 'charts',
-        data: {
-          menu: {
-            title: 'general.menu.charts',
-            icon: 'ion-stats-bars',
-            selected: false,
-            expanded: false,
-            order: 200,
-          }
-        },
-        children: [
-          {
-            path: 'chartist-js',
-            data: {
-              menu: {
-                title: 'general.menu.chartist_js',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: 'ui',
-        data: {
-          menu: {
-            title: 'general.menu.ui_features',
-            icon: 'ion-android-laptop',
-            selected: false,
-            expanded: false,
-            order: 300,
-          }
-        },
-        children: [
-          {
-            path: 'typography',
-            data: {
-              menu: {
-                title: 'general.menu.typography',
-              }
-            }
-          },
-          {
-            path: 'buttons',
-            data: {
-              menu: {
-                title: 'general.menu.buttons',
-              }
-            }
-          },
-          {
-            path: 'icons',
-            data: {
-              menu: {
-                title: 'general.menu.icons',
-              }
-            }
-          },
-          {
-            path: 'modals',
-            data: {
-              menu: {
-                title: 'general.menu.modals',
-              }
-            }
-          },
-          {
-            path: 'slim',
-            data: {
-              menu: {
-                title: 'Slim loading bar',
-              }
-            }
-          },
-          {
-            path: 'grid',
-            data: {
-              menu: {
-                title: 'general.menu.grid',
-              }
-            }
-          },
-        ]
-      },
-      {
-        path: 'forms',
-        data: {
-          menu: {
-            title: 'general.menu.form_elements',
-            icon: 'ion-compose',
-            selected: false,
-            expanded: false,
-            order: 400,
-          }
-        },
-        children: [
-          {
-            path: 'inputs',
-            data: {
-              menu: {
-                title: 'general.menu.form_inputs',
-              }
-            }
-          },
-          {
-            path: 'layouts',
-            data: {
-              menu: {
-                title: 'general.menu.form_layouts',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: 'tables',
-        data: {
-          menu: {
-            title: 'general.menu.tables',
-            icon: 'ion-grid',
-            selected: false,
-            expanded: false,
-            order: 500,
-          }
-        },
-        children: [
-          {
-            path: 'basictables',
-            data: {
-              menu: {
-                title: 'general.menu.basic_tables',
-              }
-            }
-          },
-          {
-            path: 'smarttables',
-            data: {
-              menu: {
-                title: 'general.menu.smart_tables',
-              }
-            }
-          },
-          {
-            path: 'datatables',
-            data: {
-              menu: {
-                title: 'Data Tables',
-              }
-            }
-          },
-           {
-             path: 'hottables',
-             data: {
-               menu: {
-                 title: 'Hot Tables',
-               }
-             }
-           }
-        ]
-      },
-      {
-        path: 'maps',
-        data: {
-          menu: {
-            title: 'general.menu.maps',
-            icon: 'ion-ios-location-outline',
-            selected: false,
-            expanded: false,
-            order: 600,
-          }
-        },
-        children: [
-          {
-            path: 'googlemaps',
-            data: {
-              menu: {
-                title: 'general.menu.google_maps',
-              }
-            }
-          },
-          {
-            path: 'leafletmaps',
-            data: {
-              menu: {
-                title: 'general.menu.leaflet_maps',
-              }
-            }
-          },
-          {
-            path: 'bubblemaps',
-            data: {
-              menu: {
-                title: 'general.menu.bubble_maps',
-              }
-            }
-          },
-          {
-            path: 'linemaps',
-            data: {
-              menu: {
-                title: 'general.menu.line_maps',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: '',
-        data: {
-          menu: {
-            title: 'general.menu.pages',
-            icon: 'ion-document',
-            selected: false,
-            expanded: false,
-            order: 650,
-          }
-        },
-        children: [
-          {
-            path: ['/login'],
-            data: {
-              menu: {
-                title: 'general.menu.login'
-              }
-            }
-          },
-          {
-            path: ['/register'],
-            data: {
-              menu: {
-                title: 'general.menu.register'
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: '',
-        data: {
-          menu: {
-            title: 'general.menu.menu_level_1',
-            icon: 'ion-ios-more',
-            selected: false,
-            expanded: false,
-            order: 700,
-          }
-        },
-        children: [
-          {
-            path: '',
-            data: {
-              menu: {
-                title: 'general.menu.menu_level_1_1',
-                url: '#'
-              }
-            }
-          },
-          {
-            path: '',
-            data: {
-              menu: {
-                title: 'general.menu.menu_level_1_2',
-                url: '#'
-              }
-            },
-            children: [
-              {
-                path: '',
-                data: {
-                  menu: {
-                    title: 'general.menu.menu_level_1_2_1',
-                    url: '#'
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        path: '',
-        data: {
-          menu: {
-            title: 'general.menu.external_link',
-            url: 'http://akveo.com',
-            icon: 'ion-android-exit',
-            order: 800,
-            target: '_blank'
-          }
-        }
+{
+  path: 'pages',
+  children: [
+  
+  { 
+    path: 'location',
+    data: {
+      menu: {
+        title: 'Location',
+        icon: 'ion-ios-box',
+        selected: false,
+        expanded: false,
+        order: 50
       }
-    ]
+    }
   }
-];
+  // {
+  //   path: 'order',
+  //   data: {
+  //     menu: {
+  //       title: 'Order',
+  //       icon: 'ion-ios-cart',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 50
+  //     }
+  //   }
+  // },
+        // {
+      //   path: 'ui',
+      //   data: {
+      //     menu: {
+      //       title: 'UI Features',
+      //       icon: 'ion-android-laptop',
+      //       selected: false,
+      //       expanded: false,
+      //       order: 300,
+      //     }
+      //   },
+      //   children: [
+      //     {
+      //       path: 'typography',
+      //       data: {
+      //         menu: {
+      //           title: 'Typography',
+      //         }
+      //       }
+      //     },
+      //     {
+      //       path: 'buttons',
+      //       data: {
+      //         menu: {
+      //           title: 'Buttons',
+      //         }
+      //       }
+      //     },
+      //     {
+      //       path: 'icons',
+      //       data: {
+      //         menu: {
+      //           title: 'Icons',
+      //         }
+      //       }
+      //     },
+      //     {
+      //       path: 'modals',
+      //       data: {
+      //         menu: {
+      //           title: 'Modals',
+      //         }
+      //       }
+      //     },
+      //     {
+      //       path: 'grid',
+      //       data: {
+      //         menu: {
+      //           title: 'Grid',
+      //         }
+      //       }
+      //     },
+      //   ]
+      // },
+
+  // {
+  //   path: 'part',
+  //   data: {
+  //     menu: {
+  //       title: 'Part',
+  //       icon: 'ion-wrench',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 50
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'location',
+  //   data: {
+  //     menu: {
+  //       title: 'Location',
+  //       icon: 'ion-ios-box',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 50
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'stock',
+  //   data: {
+  //     menu: {
+  //       title: 'Stock',
+  //       icon: 'ion-cube',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'material',
+  //   data: {
+  //     menu: {
+  //       title: 'Material',
+  //       icon: 'ion-pricetag',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'clients',
+  //   data: {
+  //     menu: {
+  //       title: 'Clients',
+  //       icon: 'ion-android-contact',
+  //       pathMatch: 'details',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'suppliers',
+  //   data: {
+  //     menu: {
+  //       title: 'Suppliers',
+  //       icon: 'ion-android-contacts',
+  //       pathMatch: 'details',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'clockon',
+  //   data: {
+  //     menu: {
+  //       title: 'Clock On',
+  //       icon: 'ion-ios-clock',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'clocktiles',
+  //   data: {
+  //     menu: {
+  //       title: 'Clock Tiles',
+  //       icon: 'ion-ios-clock',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // },
+  // {
+  //   path: 'productiontiles',
+  //   data: {
+  //     menu: {
+  //       title: 'Production Tiles',
+  //       icon: 'ion-clipboard',
+  //       selected: false,
+  //       expanded: false,
+  //       order: 900
+  //     }
+  //   }
+  // }
+  ]
+}];

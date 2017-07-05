@@ -5,11 +5,10 @@ import {Router} from '@angular/router';
 import { PalletLookUpService } from '../../shared/services/palletlookup.service'
 
 
-import 'style-loader!./smartTables.scss';
-
 @Component({
   selector: 'pallet-lookup',
   templateUrl: './palletlookup.html',
+   styleUrls: ['./smartTables.scss']
 })
 
 export class PalletLookUp implements AfterViewInit{

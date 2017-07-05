@@ -1,7 +1,7 @@
 <div class="widgets">
 	<ba-card baCardClass="with-scroll">
 		<div class="row show-grid ng-scope">
-			<div class="col-4 col-xs-6 col-sm-6 col-md-6">
+			<div class="col-6 col-xs-6 col-sm-6 col-md-6">
 				<label class="radio-inline custom-radio nowrap">
 					<input type="radio" name="inlineRadioOptions" id="radio1" value="PalletToLocation"(click)="radio_stock($event)">
 					<span>Pal-Loc</span>
@@ -18,19 +18,19 @@
 	<div id="switch-button">
 		<ba-card baCardClass="with-scroll">
 			<div class="onoffswitch">
-		    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-		    <label class="onoffswitch-label" for="myonoffswitch">
-		        <span class="onoffswitch-inner" (click)="Switch($event)"></span>
-		        <span class="onoffswitch-switch"(click)="Switch($event)"></span>
-		    </label>
-		</div>
+			    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+			    <label class="onoffswitch-label" for="myonoffswitch">
+			        <span class="onoffswitch-inner" (click)="Switch($event)"></span>
+			        <span class="onoffswitch-switch"(click)="Switch($event)"></span>
+			    </label>
+			</div>
 		</ba-card>
 	</div>
 	<div id="PalletToLocation" style="display: none;">
 		<ba-card baCardClass="with-scroll">
 			<div class="form-group">
 				<label for="inputPallet">Pallet Code</label>
-				<input type="text" class="form-control" id="inputPallet" style="text-transform:uppercase" placeholder="Pallet" [(ngModel)]="inputPallet">
+				<input type="text" class="form-control" id="inputPallet" style="text-transform:uppercase" placeholder="Pallet" (keydown)="focusLoc($event)" [(ngModel)]="inputPallet">
 			</div>
 			<div class="form-group">
 				<label id="BinLocation" for="inputBinLocation" >Bin Location</label>
@@ -52,7 +52,7 @@
 		<ba-card baCardClass="with-scroll">
 			<div class="form-group">
 				<label for="inputPallet">Pallet Code</label>
-				<input type="text" class="form-control" id="inputPallet" style="text-transform:uppercase" placeholder="Pallet" [(ngModel)]="inputPallet">
+				<input type="text" class="form-control" id="inputPallet2" style="text-transform:uppercase" placeholder="Pallet" (keydown)="focusJob($event)" [(ngModel)]="inputPallet">
 			</div>
 			<div class="form-group">
 				<label for="inputJob">Job</label>

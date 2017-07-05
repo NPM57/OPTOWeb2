@@ -5,11 +5,11 @@ import {Router} from '@angular/router';
 import { LocationLookUpService } from '../../shared/services/locationlookup.service'
 import { MaterialService } from '../../shared/services/material.service'
 
-import 'style-loader!./smartTables.scss';
 
 @Component({
   selector: 'location-lookup',
   templateUrl: './locationlookup.html',
+  styleUrls: ['./smartTables.scss'],
 })
 
 export class LocationLookUp implements AfterViewInit{

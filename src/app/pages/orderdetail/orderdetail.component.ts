@@ -5,11 +5,10 @@ import {Router,ActivatedRoute, Params} from '@angular/router';
 import { OrderService } from '../../shared/services/order.service';
 import { OrderDetailRender } from '../../shared/render/order-detail-render.component';
 
-import 'style-loader!./smartTables.scss';
-
 @Component({
   selector: 'Order Detail',
   templateUrl: './orderdetail.html',
+  styleUrls: ['./smartTables.scss'],
 })
 
 export class OrderDetail implements AfterViewInit{

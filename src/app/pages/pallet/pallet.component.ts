@@ -1,10 +1,11 @@
 import {Component, ViewChild, AfterViewInit} from '@angular/core';
 import { PalletService } from '../../shared/services/pallet.service';
-import 'style-loader!./buttons.scss';
+
 
 @Component({
 	selector: 'pallet',
 	templateUrl: './pallet.html',
+	 styleUrls: ['./buttons.scss']
 })
 
 export class Pallet implements AfterViewInit{
@@ -29,6 +30,21 @@ export class Pallet implements AfterViewInit{
 			document.getElementsByClassName('widgets')['0'].style.width = '400px';
 		}
 	}
+	focusLoc($event) {
+        if (($event.which == 13 || $event.keyCode == 13)) {
+        	if($event.target.value != ""){
+	           $( "#inputBinLocation" ).focus();
+	       }
+        }
+    }
+
+   	focusJob($event) {
+        if (($event.which == 13 || $event.keyCode == 13)) {
+        	if($event.target.value != ""){
+	           $( "#inputJob" ).focus();
+	       }
+        }
+    }
 
 	radio_stock(event) {    
 		this.currentRadio = event.currentTarget.defaultValue;
@@ -44,12 +60,14 @@ export class Pallet implements AfterViewInit{
 				document.getElementById('inputBinLocation').style.display = 'block';
 				document.getElementById('BinLocation').style.display = 'block';
 			}
+			$( "#inputPallet" ).focus();
 		}
 
 		if(this.currentRadio=="JobToPallet"){
 			this.type=1;
 			document.getElementById('PalletToLocation').style.display = 'none';
 			document.getElementById('JobToPallet').style.display = 'block';
+			$( "#inputPallet2" ).focus();
 		}
 	}
 
@@ -77,7 +95,6 @@ export class Pallet implements AfterViewInit{
 	}
 
 	Update(event)	{
-		console.log(this.type)
 		let json = {
 			"type":this.type,
 			"pallet_code": this.inputPallet,

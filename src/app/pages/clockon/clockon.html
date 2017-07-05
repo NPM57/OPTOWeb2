@@ -22,6 +22,7 @@
 				</div>
 
 				<div class="col-sm-6">
+					<ba-card baCardClass="with-scroll">
 					<div class="section-block" id="section1">
 			              <p>Status</p>
 			              <p>{{status_emp}}</p>
@@ -29,26 +30,37 @@
 			              <p>{{status_time}}</p>
 			              <p>{{status_date}}</p>
 			        </div>
+			        </ba-card>
 			        <div class="section-block" id="section2" style="display:none">
-			              <label for="onoffswitch">Finish Job</label>
-			              <div class="onoffswitch">
-						    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" data-id="1" id="myonoffswitch" value=1 checked >
-						    <label class="onoffswitch-label" for="myonoffswitch">
-						        <span class="onoffswitch-inner-clock"></span>
-						        <span class="onoffswitch-switch"></span>
-						    </label>
-						  </div>
-
-						  <div class="new-empty-line">
-			              <button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffJob($event)">Clock Off Job</button>
-			              <button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffDay($event)">Clock Off Day</button>
-			              </div>
-			        </div>
+			        <ba-card baCardClass="with-scroll">
+			        	<div class="row show-grid ng-scope">
+			        		<div class="col-6 col-md-4">
+					              <label for="onoffswitch">Finish Job</label>
+					        </div>
+					        <div class="col-6 col-md-8">
+					              <div class="onoffswitch">
+								    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" data-id="1" id="myonoffswitch" value=1 checked>
+								    <label class="onoffswitch-label" for="myonoffswitch">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+								    </label>
+								  </div>
+							</div>
+						</div>
+						<div class="row show-grid ng-scope">
+						 	<div class="col-6 col-md-4">
+				              <button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffJob($event)">C/O Job</button>
+				            </div>
+				           	<div class="col-6 col-md-8">
+				              <button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffDay($event)">C/O Day</button>
+				            </div>
+			        	</div>
+			        </ba-card>
+					</div>
 				</div>
-			</div>
 			
-		
-			</ba-card>
+			</div>
+	</ba-card>
 	
 
 <div class="new-empty-line"></div>
@@ -69,8 +81,8 @@
 	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="One($event)">1</button></td>
 	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Two($event)">2</button></td>
 	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Three($event)">3</button></td>
-	<td><button class="btn btn-sq btn-success" style="width:38px;height:50px" (click)="Quit($event)">Quit</button>
-	<button class="btn btn-sq btn-success" style="width:38px;height:50px" (click)="Next($event)">Next</button></td>
+	<td><button class="btn btn-sq btn-success" style="width:39.5px;height:50px" (click)="Quit($event)"><i class="ion-backspace-outline"></i></button>
+	<button class="btn btn-sq btn-success" style="width:39.5px;height:50px" (click)="Next($event)"><i class="ion-arrow-right-b"></i></button></td>
 </tr>
 <tr>
 	<td><button class="btn btn-sq-sm btn-primary" style="width:50px;height:50px" (click)="Four($event)">4</button></td>

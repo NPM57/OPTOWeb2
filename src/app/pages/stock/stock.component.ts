@@ -5,7 +5,7 @@ import { DivisionService } from '../../shared/services/division.service';
 import { EmployeeService } from '../../shared/services/employee.service';
 import { MaterialService } from '../../shared/services/material.service';
 import { BinLocationService } from '../../shared/services/binlocation.service';
-import { ModalDirective } from 'ng2-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import 'style-loader!./buttons.scss';
 
 @Component({
@@ -27,7 +27,10 @@ export class Stock implements AfterViewInit{
 	public inputCode:string="";
 	public inputOnHand:string="";
 
-	constructor(private divService: DivisionService, private empService: EmployeeService, private binlocationService: BinLocationService, private _elementRef : ElementRef) {
+	constructor(private divService: DivisionService,
+	 			private empService: EmployeeService,
+	  			private binlocationService: BinLocationService,
+	   			private _elementRef : ElementRef) {
 		
 	}
 
@@ -70,8 +73,6 @@ export class Stock implements AfterViewInit{
 	}
 
 	process(event) {
-		//alert($("#select_divisions").val() + " " + $("#select_employees").val() + " " + $("#stockInOut").val() + " " + + $("#inputOnHand").val());
-
 		if ($("#stockInOut").val() != "" && $("#inputOnHand").val() != "" && $("#inputBarcode").val() != "" && $("#inputCode").val() != "") {
 			alert("Done");	
 			$("#inputBarcode").focus();

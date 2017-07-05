@@ -3,7 +3,7 @@
 		<ba-card baCardClass="with-scroll">
 			<div class="form-group">
 				<label for="inputBarcode">Barcode</label>
-				<input type="text" class="form-control" id="inputBarcode" placeholder="Barcode" [(ngModel)]="inputBarcode">
+				<input type="text" class="form-control" id="inputBarcode" placeholder="Barcode" [(ngModel)]="inputBarcode" (keydown)="focusBin($event)">
 			</div>
 			<div class="form-group">
 				<label for="inputBinLocation">Bin Location</label>

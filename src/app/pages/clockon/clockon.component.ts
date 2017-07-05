@@ -3,12 +3,12 @@ import { EmployeeService } from '../../shared/services/employee.service';
 import { ClockOnService } from '../../shared/services/clockon.service';
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs/Rx';
-import 'style-loader!./switch.scss';
+
 
 @Component({
 	selector: 'clock-on',
-	styleUrls: ['./switch.scss'],
-	templateUrl: './clockon.html'
+	templateUrl: './clockon.html',
+	 styleUrls: ['./switch.scss']
 })
 
 
@@ -49,11 +49,9 @@ export class ClockOn implements AfterViewInit {
 			$("#myonoffswitch").click(function() {
 			if($("#myonoffswitch").val()==1){
 				$("#myonoffswitch").val(0);
-				console.log($("#myonoffswitch").val());
 			}
 			else{
 				$("#myonoffswitch").val(1);
-				console.log($("#myonoffswitch").val());
 			}
 		});
 	}
@@ -63,7 +61,7 @@ export class ClockOn implements AfterViewInit {
       		document.getElementsByClassName('form-group')['0'].style.width = '150px';
 			document.getElementsByClassName('form-group')['1'].style.width = '150px';
 			document.getElementsByClassName('form-group')['2'].style.width = '150px';      		
-      		document.getElementsByClassName('widgets')['0'].style.width = '500px';
+      		document.getElementsByClassName('widgets')['0'].style.width = '700px';
     	}
   	}
 

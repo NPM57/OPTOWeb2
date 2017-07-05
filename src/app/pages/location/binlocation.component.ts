@@ -24,7 +24,18 @@ export class BinLocation implements AfterViewInit{
       		document.getElementsByClassName('form-group')['1'].style.width = '300px';
       		document.getElementsByClassName('widgets')['0'].style.width = '400px';
     	}
+    	 $( "#inputBarcode" ).focus();
   	}
+
+	focusBin($event) {
+	  	console.log($event, $event.key, $event.keyIdentifier);
+        if (($event.which == 13 || $event.keyCode == 13)) {
+        	if($event.target.value != ""){
+	           $( "#inputBinLocation" ).focus();
+	       }
+        }
+    }
+
 
 	button_OUT(event) {
 		//alert("OUT CLICKED");

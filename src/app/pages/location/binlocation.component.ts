@@ -28,7 +28,6 @@ export class BinLocation implements AfterViewInit{
   	}
 
 	focusBin($event) {
-	  	console.log($event, $event.key, $event.keyIdentifier);
         if (($event.which == 13 || $event.keyCode == 13)) {
         	if($event.target.value != ""){
 	           $( "#inputBinLocation" ).focus();

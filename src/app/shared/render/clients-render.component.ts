@@ -1,29 +1,29 @@
-// import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
-// import { Cell, DefaultEditor, Editor } from 'ng2-smart-table';
+import { Cell, DefaultEditor, Editor } from 'ng2-smart-table';
 
-// @Component({
-//   template: `
-//     <p style="text-align:right;vertical-align:middle">{{this.value}}<p>
-//   `,
-// })
-// export class ClientsRender extends DefaultEditor implements AfterViewInit  {
+@Component({
+  template: `
+    <p style="text-align:right;vertical-align:middle"><p>
+  `,
+})
+export class ClientsRender extends DefaultEditor implements AfterViewInit  {
 
-//   renderValue: string;
+  renderValue: string;
 
-//   // @ViewChild('name') name: ElementRef;
-//   // @Input() value: string | number;
-//   // @Input() rowData: any;
+  // @ViewChild('name') name: ElementRef;
+  // @Input() value: string | number;
+  // @Input() rowData: any;
 
-//   constructor() {
-//     super();
-//   }
+  constructor() {
+    super();
+  }
 
-//   ngAfterViewInit() {
+  ngAfterViewInit() {
 
-//   	if(this.value==""|| this.value==" " || this.value==null){
-//   		//this.value="Empty";
-//   	}
-//   }
+  	// if(this.value==""|| this.value==" " || this.value==null){
+  	// 	//this.value="Empty";
+  	// }
+  }
 
-// }
+}

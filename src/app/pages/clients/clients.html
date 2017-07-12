@@ -1,0 +1,8 @@
+<router-outlet></router-outlet>
+<div class="widgets">
+  <div class="row">
+    <ba-card baCardClass="with-scroll">
+      <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onRowSelect($event)"></ng2-smart-table>
+    </ba-card>
+  </div>
+</div>

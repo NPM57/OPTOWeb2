@@ -21,7 +21,7 @@ export class Order implements AfterViewInit{
    actions: false,
     columns: {
       order_code: {
-        title: 'Order ID',
+        title: 'ID',
         type: 'text'
       },
       customer_name: {
@@ -62,9 +62,9 @@ export class Order implements AfterViewInit{
   }
    ngAfterViewInit(){
     document.getElementsByClassName('order_code')['0'].style.width = '100px';
-    document.getElementsByClassName('customer')['0'].style.width = '100px';
+    document.getElementsByClassName('customer')['0'].style.width = '140px';
     document.getElementsByClassName('contact_name')['0'].style.width = '150px';
-    document.getElementsByClassName('sum_one')['0'].style.width = '100px';
+    document.getElementsByClassName('sum_one')['0'].style.width = '120px';
   }
 
   onDeleteConfirm(event): void {

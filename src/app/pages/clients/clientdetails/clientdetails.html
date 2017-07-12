@@ -1,0 +1,155 @@
+<div class="widgets">
+    <div>
+    	<ba-card title="Client Details" baCardClass="with-scroll">
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputClientCode">Client Code</label>
+			      <input type="text" class="form-control" id="inputClientCode" placeholder="Client Code" [(ngModel)]="inputClientCode">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputClientName">Client Name</label>
+			      <input type="text" class="form-control" id="inputClientName" placeholder="Client Name" [(ngModel)]="inputClientName">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputFirstName">Email</label>
+			      <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="inputEmail">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputWebsite">Website</label>
+			      <input type="text" class="form-control" id="inputWebsite" placeholder="Website" [(ngModel)]="inputWebsite">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputPostalAddress1">Postal Address 1</label>
+			      <input type="text" class="form-control" id="inputPostalAddress1" placeholder="Postal Address 1" [(ngModel)]="inputPostalAddress1">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputDeliveryAddress1">Delivery Address 1</label>
+			      <input type="text" class="form-control" id="inputDeliveryAddress1" placeholder="Delivery Address 1" [(ngModel)]="inputDeliveryAddress1">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputPostalAddress2">Postal Address 2</label>
+			      <input type="text" class="form-control" id="inputPostalAddress2" placeholder="Postal Address 2" [(ngModel)]="inputPostalAddress2">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputDeliveryAddress2">Delivery Address 2</label>
+			      <input type="text" class="form-control" id="inputDeliveryAddress2" placeholder="Delivery Address 2" [(ngModel)]="inputDeliveryAddress2">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputPostalCity">Postal City</label>
+			      <input type="text" class="form-control" id="inputPostalCity" placeholder="Postal City" [(ngModel)]="inputPostalCity">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputDeliveryCity">Delivery City</label>
+			      <input type="text" class="form-control" id="inputDeliveryCity" placeholder="Delivery City" [(ngModel)]="inputDeliveryCity">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			  	<div class="row">
+			  		<div class="col-sm-6">
+  					    <div class="form-group">
+				      		<label for="inputPostalState">Postal State</label>
+				      		<input type="text" class="form-control" id="inputPostalState" placeholder="Postal State" [(ngModel)]="inputPostalState">
+				    	</div>
+			  		</div>
+			  		<div class="col-sm-6">
+  					    <div class="form-group">
+				      		<label for="inputPostalPostcode">Postal Postcode</label>
+				      		<input type="text" class="form-control" id="inputPostalPostcode" placeholder="Postal Postcode" [(ngModel)]="inputPostalPostcode">
+				    	</div>
+			  		</div>
+			  	</div>
+			  </div>
+			<div class="col-sm-6">
+			    <div class="row">
+			  		<div class="col-sm-6">
+  					    <div class="form-group">
+				      		<label for="inputDeliveryState">Delivery State</label>
+				      		<input type="email" class="form-control" id="inputDeliveryState" placeholder="Delivery State" [(ngModel)]="inputDeliveryState">
+				    	</div>
+			  		</div>
+			  		<div class="col-sm-6">
+  					    <div class="form-group">
+				      		<label for="inputDeliveryPostcode">Delivery Postcode</label>
+				      		<input type="text" class="form-control" id="inputDeliveryPostcode" placeholder="Delivery State" [(ngModel)]="inputDeliveryPostcode">
+				    	</div>
+			  		</div>
+			  	</div>
+			  </div>  
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputPostalCountry">Postal Country</label>
+			      <input type="text" class="form-control" id="inputPostalCountry" placeholder="Postal Country" [(ngModel)]="inputPostalPostcode">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="inputDeliveryCity">Delivery Country</label>
+			      <input type="text" class="form-control" id="inputDeliveryCountry" placeholder="Delivery Country" [(ngModel)]="inputDeliveryPostcode">
+			   </div>
+				</div>
+			</div>
+		</ba-card>
+	</div>
+
+
+	<ba-card title="Part List" baCardClass="with-scroll">
+		<ng2-smart-table [settings]="settings1" [source]="source1" ></ng2-smart-table>
+	</ba-card>
+
+	<ba-card title="Order List" baCardClass="with-scroll">
+		<ng2-smart-table [settings]="settings2" [source]="source2" ></ng2-smart-table>
+	</ba-card>
+
+
+	<ba-card title="Material List" baCardClass="with-scroll">
+		<ng2-smart-table [settings]="settings3" [source]="source3" ></ng2-smart-table>
+	</ba-card>
+
+
+
+  		
+
+
+  	<ba-card title="Total Amount Chart">
+		<ba-chartist-chart baChartistChartClass="ct-chart" baChartistChartType="Bar">
+        </ba-chartist-chart>
+	</ba-card>
+
+
+  	<ba-card title="Google Maps">
+	  <div class="google-maps"></div>
+	</ba-card>
+
+	
+</div>

@@ -1,29 +1,26 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { Cell, DefaultEditor, Editor } from 'ng2-smart-table';
+import { ViewCell } from 'ng2-smart-table';
 
 @Component({
   template: `
-    <p style="text-align:right;vertical-align:middle"><p>
+    <p style="text-align:right;vertical-align:middle">{{this.renderValue}}<p>
   `,
 })
-export class MaterialRender extends DefaultEditor implements AfterViewInit  {
+export class MaterialRender implements ViewCell, OnInit  {
 
   renderValue: string;
 
   // @ViewChild('name') name: ElementRef;
-  // @Input() value: string | number;
-  // @Input() rowData: any;
+  @Input() value: any;
+  @Input() rowData: any;
 
-  constructor() {
-    super();
-  }
-
-  ngAfterViewInit() {
-
-  	// if(this.value==""|| this.value==" " || this.value==null){
-  	// 	//this.value="Empty";
-  	// }
+  ngOnInit() {
+  	if(this.value==""|| this.value==" " || this.value==null){
+  		this.renderValue="Empty";
+  	}else{
+      this.renderValue=this.value;
+    }
   }
 
 }

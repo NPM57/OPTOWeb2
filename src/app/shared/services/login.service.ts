@@ -132,7 +132,9 @@ export class LoginService{
        if(this.menu[0]["menu_production_tile"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "productiontiles","data": {"menu": {"title": "Production Tiles","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
        }
-      
+       if(this.menu[0]["menu_statistics"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "statistics","data": {"menu": {"title": "Statistics","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
+       }
        
 
        this.menu_render_user = this.menu_render_user + ']}]';

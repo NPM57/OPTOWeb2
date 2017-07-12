@@ -1,4 +1,4 @@
-import {Component, ViewChild, AfterViewInit} from '@angular/core';
+import {HostListener, Component, ViewChild, AfterViewInit} from '@angular/core';
 import { BinLocationService } from '../../shared/services/binlocation.service';
 
 @Component({
@@ -9,11 +9,17 @@ import { BinLocationService } from '../../shared/services/binlocation.service';
 
 export class BinLocation implements AfterViewInit{
 
-	inputBarcode:string;
-	inputBinLocation:string;
+	inputBarcode:string="";
+	inputBinLocation:string="";
+	mode:string;
+	mode_type:number;
+	hiddentext:string="";
+
+	scan_data:string;
 
 	constructor(private service: BinLocationService) {
-	  
+	  this.mode_type = 1;
+	  this.mode='Scan';
 	}
 
 	ngAfterViewInit(){
@@ -24,16 +30,68 @@ export class BinLocation implements AfterViewInit{
       		document.getElementsByClassName('form-group')['1'].style.width = '300px';
       		document.getElementsByClassName('widgets')['0'].style.width = '400px';
     	}
-    	 $( "#inputBarcode" ).focus();
   	}
 
-	focusBin($event) {
+	
+  	@HostListener('document:keypress', ['$event'])
+	handleKeyboardEvent(event: KeyboardEvent) {
+		if(this.mode_type==1){
+		  let x = event.keyCode;
+		  let character = event.key;
+		  if (x != 13) {
+		  	this.hiddentext= this.hiddentext+character;
+		  }else if(x===13 && this.inputBarcode!=""){
+		  	this.inputBinLocation=this.hiddentext;
+		  	this.hiddentext="";
+		  }else{
+		  	this.inputBarcode=this.hiddentext;
+		  	this.hiddentext="";
+		  }
+		}
+	}
+
+  	modeSelected($event){
+  		if(this.mode_type==1){
+  			this.mode_type=2;
+  			this.mode='Keyboard';
+  			$( "#inputBarcode" ).focus();
+  		}else{
+  			this.mode_type=1;
+  			this.mode='Scan';
+  		}
+  	}
+
+  	clearInput($event){
+  		if($event.srcElement.value==1){
+  			this.inputBarcode="";
+  			$('#clearbar').blur();
+  		}else{
+  			this.inputBinLocation="";
+  			$('#clearbin').blur();
+  		}
+   	}
+
+  	stopKeyboard($event){
+  		if(this.mode_type==1){
+	  		$('#inputBarcode').blur();
+	  		$('#inputBinLocation').blur();
+  		}
+  	}
+
+	barCodeHandle($event) {	
         if (($event.which == 13 || $event.keyCode == 13)) {
-        	if($event.target.value != ""){
-	           $( "#inputBinLocation" ).focus();
-	       }
-        }
+	       	if($event.target.value != "" && this.mode_type==2){
+		       $( "#inputBinLocation" ).focus();
+		    }
+		}
     }
+
+    binHandle($event) {
+        if (($event.which == 13 || $event.keyCode == 13) && this.mode_type==2) {
+	        $("#inputBinLocation").blur();
+
+    	}
+	}
 
 
 	button_OUT(event) {
@@ -48,6 +106,7 @@ export class BinLocation implements AfterViewInit{
     		alert(res.json().message);
     		this.inputBarcode="";
 			this.inputBinLocation="";
+			$( "#inputBarcode" ).focus();
     	})
 
 	}
@@ -65,6 +124,7 @@ export class BinLocation implements AfterViewInit{
     		alert(res.json().message);
     		this.inputBarcode="";
 			this.inputBinLocation="";
+			$( "#inputBarcode" ).focus();
     	})
 
 	}

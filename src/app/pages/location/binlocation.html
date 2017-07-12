@@ -1,13 +1,26 @@
 <div class="widgets">
-	<div>
+		<ba-card >
+			<div class="row">
+				<div class="col-5 col-xs-6 col-md-6" style="display:table-cell;text-align:center;vertical-align:middle;">
+					<label class="radio-inline custom-radio nowrap" for="mode"><font size="4">{{mode}}</font></label>
+				</div>
+				<div class="col-5 col-xs-6 col-md-6">
+					<label class="radio-inline custom-radio nowrap">
+						<button type="button" id="mode" class="btn btn-default btn-md" (click)="modeSelected($event)">Mode</button>
+					</label>
+				</div>
+			</div>
+		</ba-card>
 		<ba-card baCardClass="with-scroll">
 			<div class="form-group">
 				<label for="inputBarcode">Barcode</label>
-				<input type="text" class="form-control" id="inputBarcode" placeholder="Barcode" [(ngModel)]="inputBarcode" (keydown)="focusBin($event)">
+				<input type="text" class="form-control" id="inputBarcode" placeholder="Barcode" [(ngModel)]="inputBarcode" (click)="stopKeyboard($event)" (keydown)="barCodeHandle($event)">
+				<button type="button" id="clearbar" value="1" class="btn btn-danger btn-sm" (click)="clearInput($event)">Clear</button>
 			</div>
 			<div class="form-group">
 				<label for="inputBinLocation">Bin Location</label>
-				<input type="text" class="form-control" id="inputBinLocation" placeholder="Bin Location" [(ngModel)]="inputBinLocation">
+				<input type="text" class="form-control" id="inputBinLocation" placeholder="Bin Location" [(ngModel)]="inputBinLocation" (click)="stopKeyboard($event)" (keydown)="binHandle($event)">
+				<button type="button" id="clearbin" value="2" class="btn btn-danger btn-sm" (click)="clearInput($event)">Clear</button>
 			</div>
 
 
@@ -29,7 +42,6 @@
 			</div>  
 
 		</ba-card>
-	</div>
 </div>
 
 

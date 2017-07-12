@@ -1,5 +1,5 @@
 import {Injectable, Inject} from "@angular/core";
-import {AppConfig} from "../../app.module";
+// import {AppConfig} from "../../app.module";
 import {Http, Headers, Response} from "@angular/http";
 import {Observable} from "rxjs";
 
@@ -12,7 +12,7 @@ import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '
 
 export class AuthService implements CanActivate  {
 
-  constructor(@Inject ('APP_CONFIG_TOKEN') private config:AppConfig, 
+  constructor( 
     private http:Http, private router: Router, private loginservice:LoginService){
     // let user:auth={
       //   username: this.config.APP_ID,

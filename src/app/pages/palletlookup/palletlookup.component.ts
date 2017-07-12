@@ -20,7 +20,7 @@ export class PalletLookUp implements AfterViewInit{
   codeField:string="";
   type:number=0;
 
-  markup:string="Default";
+  markup:string="";
 
   status:string="";
   tableName:string;

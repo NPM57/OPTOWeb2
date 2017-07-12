@@ -46,6 +46,13 @@ export class Pallet implements AfterViewInit{
         }
     }
 
+    closeKeyboard($event) {
+        if (($event.which == 13 || $event.keyCode == 13)) {
+	           $("#inputBinLocation").blur();
+	           $("#inputJob").blur();
+    	}
+	}
+
 	radio_stock(event) {    
 		this.currentRadio = event.currentTarget.defaultValue;
 		if(this.currentRadio=="PalletToLocation"){
@@ -78,18 +85,26 @@ export class Pallet implements AfterViewInit{
 				this.inputBinLocation="";
 				document.getElementById('inputBinLocation').style.display = 'none';
 				document.getElementById('BinLocation').style.display = 'none';
+				$( "#inputPallet" ).focus();
+				$( "#inputPallet2" ).focus();
 			}else{
 				document.getElementById('inputBinLocation').style.display = 'block';
 				document.getElementById('BinLocation').style.display = 'block';
+				$( "#inputPallet" ).focus();
+				$( "#inputPallet2" ).focus();
 			}
 		}else{
 			this.inout=1;
 			if(this.inout==1){
 				document.getElementById('inputBinLocation').style.display = 'block';
 				document.getElementById('BinLocation').style.display = 'block';
+				$( "#inputPallet" ).focus();
+				$( "#inputPallet2" ).focus();
 			}else{
 				document.getElementById('inputBinLocation').style.display = 'none';
 				document.getElementById('BinLocation').style.display = 'none';
+				$( "#inputPallet" ).focus();
+				$( "#inputPallet2" ).focus();
 			}
 		}
 	}
@@ -106,20 +121,27 @@ export class Pallet implements AfterViewInit{
 
 		if(this.inputPallet==""){
 			alert("Input pallet cannot be empty");
+			$( "#inputPallet" ).focus();
+			$( "#inputPallet2" ).focus();
 			return;
 		}else{
 			if(this.inout==1){
 				if(this.inputBinLocation == "" && this.currentRadio == "PalletToLocation"){
 					alert("Input location field cannot be empty");
+					$( "#inputPallet" ).focus();
 					return;
 				}else if(this.inputJob == "" && this.currentRadio == "JobToPallet"){
 					alert("Input job field cannot be empty");
+					$( "#inputPallet2" ).focus();
 					return;
 				}else{
 					this.service.sendPallet(json).subscribe(res => {
 						alert(res.json().message);
 						this.inputJob="";
 						this.inputBinLocation="";
+						$( "#inputPallet" ).focus();
+						$( "#inputPallet2" ).focus();
+				
 					})	
 				}
 
@@ -127,12 +149,15 @@ export class Pallet implements AfterViewInit{
 				
 				if(this.inputJob == "" && this.currentRadio == "JobToPallet"){
 					alert("Input job field cannot be empty");
+					$( "#inputPallet2" ).focus();
 					return;
 				}else{
 					this.service.sendPallet(json).subscribe(res => {
 						alert(res.json().message);
 						this.inputJob="";
 						this.inputBinLocation="";
+						$( "#inputPallet" ).focus();
+						$( "#inputPallet2" ).focus();
 					})
 				}
 				

@@ -43,20 +43,21 @@ export const routes: Routes = [
       { path: 'palletlookup',canActivate: [PalletLookUpGuard], loadChildren: 'app/pages/palletlookup/palletlookup.module#PalletLookUpModule' },
       // //{ path: 'ui',canActivateChild: [AuthService], loadChildren: 'app/pages/ui/ui.module#UiModule' },
      
+      { path: 'statistics', loadChildren: 'app/pages/statistics/statistics.module#StatisticsModule' },
 
-      // { path: 'material',canActivate: [MaterialGuard], loadChildren: 'app/pages/material/material.module#MaterialModule' },
-      // { path: 'materialslist/:id',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialslist/materialslist.module#MaterialsListModule' },
-      // { path: 'materialdetail/:code',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialdetail/materialdetail.module#MaterialDetailModule' },
+      { path: 'material',canActivate: [MaterialGuard], loadChildren: 'app/pages/material/material.module#MaterialModule' },
+      { path: 'materialslist/:id',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialslist/materialslist.module#MaterialsListModule' },
+      { path: 'materialdetail/:code',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialdetail/materialdetail.module#MaterialDetailModule' },
       
-      // { path: 'part',canActivate: [PartGuard], loadChildren: 'app/pages/part/part.module#PartModule' },
-      // { path: 'partlist/:id',canActivate: [PartGuard], loadChildren: 'app/pages/partlist/partlist.module#PartListModule' },
+      { path: 'part',canActivate: [PartGuard], loadChildren: 'app/pages/part/part.module#PartModule' },
+      { path: 'partlist/:id',canActivate: [PartGuard], loadChildren: 'app/pages/partlist/partlist.module#PartListModule' },
     
       { path: 'stock',canActivate: [StockGuard], loadChildren: 'app/pages/stock/stock.module#StockModule'},
       { path: 'clockon',canActivate: [ClockOnGuard], loadChildren: 'app/pages/clockon/clockon.module#ClockOnModule'},
-      // { path: 'clocktiles',canActivate: [ClockTileGuard], loadChildren: 'app/pages/clocktiles/clocktiles.module#ClockTilesModule'},
-      // { path: 'productiontiles',canActivate: [ProductionTileGuard], loadChildren: 'app/pages/productiontiles/productiontiles.module#ProductionTilesModule'},
-      // { path: 'clients',canActivate: [ClientGuard], loadChildren: 'app/pages/clients/clients.module#ClientsModule' },
-      // { path: 'suppliers',canActivate: [SupplierGuard], loadChildren: 'app/pages/suppliers/suppliers.module#SuppliersModule' },
+      { path: 'clocktiles',canActivate: [ClockTileGuard], loadChildren: 'app/pages/clocktiles/clocktiles.module#ClockTilesModule'},
+      { path: 'productiontiles',canActivate: [ProductionTileGuard], loadChildren: 'app/pages/productiontiles/productiontiles.module#ProductionTilesModule'},
+      { path: 'clients',canActivate: [ClientGuard], loadChildren: 'app/pages/clients/clients.module#ClientsModule' },
+      { path: 'suppliers',canActivate: [SupplierGuard], loadChildren: 'app/pages/suppliers/suppliers.module#SuppliersModule' },
       { path: 'order',canActivate: [OrderGuard], loadChildren: 'app/pages/order/order.module#OrderModule' },
       { path: 'orderdetail/:id',canActivate: [OrderGuard], loadChildren: 'app/pages/orderdetail/orderdetail.module#OrderDetailModule' },
    

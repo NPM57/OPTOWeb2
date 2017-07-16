@@ -19,6 +19,7 @@ import { SupplierGuard } from '../shared/services/supplier.guard'
 import { ClockOnGuard } from '../shared/services/clockon.guard'
 import { ClockTileGuard } from '../shared/services/clocktile.guard'
 import { ProductionTileGuard } from '../shared/services/productiontile.guard'
+import { StatisticsGuard } from '../shared/services/statistics.guard'
 
 import { Pages } from './pages.component';
 
@@ -41,6 +42,7 @@ import { Pages } from './pages.component';
   ClockOnGuard,
   ClockTileGuard,
   ProductionTileGuard,
+  StatisticsGuard
   ]
 })
 export class PagesModule {

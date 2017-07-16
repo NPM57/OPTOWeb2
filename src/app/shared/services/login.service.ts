@@ -135,6 +135,12 @@ export class LoginService{
        if(this.menu[0]["menu_statistics"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "statistics","data": {"menu": {"title": "Statistics","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
        }
+       if(this.menu[0]["menu_job_project"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "jobproject","data": {"menu": {"title": "JobProject","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
+       }
+       if(this.menu[0]["menu_job_total"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "jobtotal","data": {"menu": {"title": "JobTotal","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
+       }
        
 
        this.menu_render_user = this.menu_render_user + ']}]';

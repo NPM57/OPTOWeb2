@@ -86,6 +86,18 @@ export class MaterialService {
     )
   }
 
+  getMaterialInvoice(material:string):Observable<Response>{
+    return this.http.get(
+      `${this.config.BASE_URL}/api/materialinvoice?web=1&mat=` + material,
+      {
+        headers:new Headers({
+          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          }
+        )
+      }
+    )
+  }
+
 
 
 }

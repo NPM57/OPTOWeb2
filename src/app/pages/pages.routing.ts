@@ -16,6 +16,7 @@ import { SupplierGuard } from '../shared/services/supplier.guard'
 import { ClockOnGuard } from '../shared/services/clockon.guard'
 import { ClockTileGuard } from '../shared/services/clocktile.guard'
 import { ProductionTileGuard } from '../shared/services/productiontile.guard'
+import { StatisticsGuard } from '../shared/services/statistics.guard'
 
 // noinspection TypeScriptValidateTypes
 
@@ -43,7 +44,9 @@ export const routes: Routes = [
       { path: 'palletlookup',canActivate: [PalletLookUpGuard], loadChildren: 'app/pages/palletlookup/palletlookup.module#PalletLookUpModule' },
       // //{ path: 'ui',canActivateChild: [AuthService], loadChildren: 'app/pages/ui/ui.module#UiModule' },
      
-      { path: 'statistics', loadChildren: 'app/pages/statistics/statistics.module#StatisticsModule' },
+      { path: 'statistics',canActivate: [StatisticsGuard], loadChildren: 'app/pages/statistics/statistics.module#StatisticsModule' },
+      { path: 'jobproject', loadChildren: 'app/pages/jobproject/jobproject.module#JobProjectModule' },
+      { path: 'jobtotal', loadChildren: 'app/pages/jobtotal/jobtotal.module#JobTotalModule' },
 
       { path: 'material',canActivate: [MaterialGuard], loadChildren: 'app/pages/material/material.module#MaterialModule' },
       { path: 'materialslist/:id',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialslist/materialslist.module#MaterialsListModule' },

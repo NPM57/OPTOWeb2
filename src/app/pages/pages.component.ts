@@ -32,13 +32,14 @@ export class Pages {
   }
 
   ngOnInit() {
+    var MENU;
      if(screen.width>420){
-       var MENU_BY_USER = this.loginservice.getMenuRenderByUser();
-       this._menuService.updateMenuByRoutes(<Routes>MENU_BY_USER);
+       MENU = this.loginservice.getMenuRenderByUser();
+       this._menuService.updateMenuByRoutes(<Routes>MENU);
      }
      if(screen.width<=420){
-       var MENU_BY_DEVICE = this.loginservice.getMenuRenderByDevices();
-       this._menuService.updateMenuByRoutes(<Routes>MENU_BY_DEVICE); 
+       MENU = this.loginservice.getMenuRenderByDevices();
+       this._menuService.updateMenuByRoutes(<Routes>MENU); 
      }
   }
 

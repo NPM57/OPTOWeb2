@@ -1,33 +1,5 @@
 <div class="widgets">
 	<ba-card >
-		<div class="row show-grid ng-scope">
-			<div class="col-3 col-xs-3 col-sm-3">
-				<label class="radio-inline custom-radio nowrap">
-					<input type="radio" name="inlineRadioOptions" id="radio1" value="Client" (click)="radio_stock($event)">
-					<span>Cli</span>
-				</label>
-			</div>
-			<div class="col-3 col-xs-3 col-sm-3">
-				<label class="radio-inline custom-radio nowrap">
-					<input type="radio" name="inlineRadioOptions" id="radio2" value="Supplier" (click)="radio_stock($event)">
-					<span>Sup</span>
-				</label>
-			</div>
-			<div class="col-3 col-xs-3 col-sm-3">
-				<label class="radio-inline custom-radio nowrap">
-					<input type="radio" name="inlineRadioOptions" id="radio3" value="Part" (click)="radio_stock($event)">
-					<span>Part</span>
-				</label>
-			</div>
-			<div class="col-3 col-xs-3 col-sm-3">
-				<label class="radio-inline custom-radio nowrap">
-					<input type="radio" name="inlineRadioOptions" id="radio4" value="Material" (click)="radio_stock($event)">
-					<span>Mat</span>
-				</label>
-			</div>
-		</div>
-	</ba-card>
-	<ba-card >
 		<div class="row">
 			<div class="col-5 col-xs-6 col-md-7">
 				<input style="height:40px;text-transform:uppercase" type="text" class="form-control" id="codeField" [placeholder]="markup" [(ngModel)]="codeField" (keydown)="enterSearch($event,codeField)">
@@ -49,7 +21,7 @@
 		</div>
 	</ba-card>
 
-	<ba-card title="Total Amount Chart" id="barChart" style="display:none">
+	<ba-card title="Total Amount Chart" id="barChart">
 		 <ba-chartist-chart baChartistChartClass="ct-chart"
                            baChartistChartType="Bar">
         </ba-chartist-chart>

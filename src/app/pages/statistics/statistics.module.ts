@@ -9,6 +9,8 @@ import { Statistics } from './statistics.component';
 
 import { ClientService } from '../../shared/services/client.service';
 import { SupplierService } from '../../shared/services/supplier.service';
+import { PartService } from '../../shared/services/part.service';
+import { MaterialService } from '../../shared/services/material.service';
 // import { PalletLookUpService } from '../../shared/services/palletlookup.service';
 
 
@@ -26,7 +28,9 @@ import { SupplierService } from '../../shared/services/supplier.service';
   providers: [
     // PalletLookUpService
     ClientService,
-    SupplierService
+    SupplierService,
+    PartService,
+    MaterialService
   ]
 })
 export class StatisticsModule {}

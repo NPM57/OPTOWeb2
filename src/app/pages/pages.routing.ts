@@ -17,6 +17,9 @@ import { ClockOnGuard } from '../shared/services/clockon.guard'
 import { ClockTileGuard } from '../shared/services/clocktile.guard'
 import { ProductionTileGuard } from '../shared/services/productiontile.guard'
 import { StatisticsGuard } from '../shared/services/statistics.guard'
+import { JobTotalGuard } from '../shared/services/jobtotal.guard'
+import { JobProjectGuard } from '../shared/services/jobproject.guard'
+//import { WorkCenterGuard } from '../shared/services/workcenter.guard'
 
 // noinspection TypeScriptValidateTypes
 
@@ -45,8 +48,11 @@ export const routes: Routes = [
       // //{ path: 'ui',canActivateChild: [AuthService], loadChildren: 'app/pages/ui/ui.module#UiModule' },
      
       { path: 'statistics',canActivate: [StatisticsGuard], loadChildren: 'app/pages/statistics/statistics.module#StatisticsModule' },
-      { path: 'jobproject', loadChildren: 'app/pages/jobproject/jobproject.module#JobProjectModule' },
-      { path: 'jobtotal', loadChildren: 'app/pages/jobtotal/jobtotal.module#JobTotalModule' },
+      { path: 'jobproject',canActivate: [JobProjectGuard], loadChildren: 'app/pages/jobproject/jobproject.module#JobProjectModule' },
+      { path: 'jobtotal',canActivate: [JobTotalGuard], loadChildren: 'app/pages/jobtotal/jobtotal.module#JobTotalModule' },
+
+      { path: 'workcenter', loadChildren: 'app/pages/workcenter/workcenter.module#WorkCenterModule' },
+      { path: 'workcenterdetail/:id', loadChildren: 'app/pages/workcenterdetail/workcenterdetail.module#WorkCenterDetailModule' },
 
       { path: 'material',canActivate: [MaterialGuard], loadChildren: 'app/pages/material/material.module#MaterialModule' },
       { path: 'materialslist/:id',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialslist/materialslist.module#MaterialsListModule' },

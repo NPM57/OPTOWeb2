@@ -15,11 +15,12 @@ import {Observable} from 'rxjs/Rx';
 export class ClockOn implements AfterViewInit {
 
 	public curr_code:string="";
-	private curr_page:number;
+	public curr_page:number;
 	public status_emp:string="";
 	public status_date:string="";
 	public status_time:string="";
 	public status_clock_on:string="";
+
 
 	private activate:number;
 
@@ -39,10 +40,13 @@ export class ClockOn implements AfterViewInit {
 	public work_center_desc:any;
 
 
-	clocks: Observable<Array<any>>
+	//clocks: Observable<Array<any>>
 
-	constructor(private router: Router, protected employeeservice: EmployeeService, protected clockonservice:ClockOnService) {
+	constructor(private router: Router, 
+		protected employeeservice: EmployeeService, 
+		protected clockonservice:ClockOnService) {
 		this.curr_page=1;
+		//this.workcenters=[];
 	}
 
 	ngOnInit() {
@@ -168,8 +172,9 @@ export class ClockOn implements AfterViewInit {
 						document.getElementById('emp').style.display = 'none';
 						document.getElementById('wc').style.display = 'block';
 						this.job_number=this.curr_code;
-						this.workcenters = this.clockonservice.getWorkCenterByJobId(this.curr_code).map(response => response.json()["workcenters"]);
-
+					
+						this.workcenters=res.json()["workcenters"];
+	
 						this.curr_code="okay";
 						this.curr_page=3;
 						
@@ -216,6 +221,7 @@ export class ClockOn implements AfterViewInit {
 
 	Status(event): void {
 		if(this.curr_code!=""){
+
 			this.clockonservice.getAllInformation(this.curr_code).subscribe(res=>{
 				if(res.json()["employee_id"]==this.curr_code){
 					this.status_emp="The status of employee: "+res.json()["employee_name"]+" - "+this.curr_code;
@@ -242,7 +248,7 @@ export class ClockOn implements AfterViewInit {
 
 
 	ClockOffJob(event): void {
-		this.clockonservice.clockOff(this.employee_id).subscribe(res=>{
+		this.clockonservice.clockOff(this.employee_id,$("#myonoffswitch").val()).subscribe(res=>{
 			document.getElementById('section2').style.display = 'none';
 			this.curr_page=1;
 			this.curr_code=""
@@ -257,7 +263,7 @@ export class ClockOn implements AfterViewInit {
 	}
 
 	ClockOffDay(event): void {
-		this.clockonservice.clockOff(this.employee_id).subscribe(res=>{
+		this.clockonservice.clockOff(this.employee_id,$("#myonoffswitch").val()).subscribe(res=>{
 			document.getElementById('section2').style.display = 'none';
 			this.curr_page=1;
 			this.curr_code=""

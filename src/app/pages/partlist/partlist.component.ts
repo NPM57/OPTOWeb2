@@ -60,7 +60,7 @@ export class PartList implements AfterViewInit  {
     //   this.source.load(data);
     // });
     this.route.params.subscribe(params => {
-            this.id = +params['id'];});
+            this.id = params['id'];});
 
     this.service.getPartList(this.id).subscribe(res => {
         //alert(JSON.stringify(res.json()));

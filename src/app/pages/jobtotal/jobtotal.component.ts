@@ -21,11 +21,9 @@ require('chartist-plugin-tooltip');
 
 export class JobTotal implements AfterViewInit{
 
-	private codeField:string="";
+	public codeField:string="";
 	public data;
 	public options;
-	private qty_type:number=1;
-	private integ:boolean=false;
 
 	constructor(
 		private route: ActivatedRoute, 

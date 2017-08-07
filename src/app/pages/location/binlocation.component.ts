@@ -97,7 +97,6 @@ export class BinLocation implements AfterViewInit{
 	button_OUT(event) {
 		//alert("OUT CLICKED");
 		let json = {
-			"material_code" : "",
 			"barcode": this.inputBarcode,
 			"bin_location" : this.inputBinLocation,
 			"action" : "0"
@@ -114,7 +113,6 @@ export class BinLocation implements AfterViewInit{
 	button_IN(event) {
 		//alert("IN CLICKED");
 		let json = {
-			"material_code" : "",
 			"barcode": this.inputBarcode,
 			"bin_location" : this.inputBinLocation,
 			"action" : "1"

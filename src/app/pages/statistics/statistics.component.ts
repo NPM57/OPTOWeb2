@@ -23,14 +23,14 @@ require('chartist-plugin-tooltip');
 
 export class Statistics implements AfterViewInit{
 
-	private currentRadio:string="";
-	private type:number=0;
-	private markup:string="";
-	private codeField:string="";
+	public currentRadio:string="";
+	public type:number=0;
+	public markup:string="";
+	public codeField:string="";
 	public data;
 	public options;
-	private qty_type:number=1;
-	private integ:boolean=false;
+	public qty_type:number=1;
+	public integ:boolean=false;
 
 	constructor(
 		private route: ActivatedRoute, 

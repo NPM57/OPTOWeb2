@@ -17,7 +17,7 @@ export class DivisionService {
 
   getDivisions():Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/division?web=1`,
+      `${this.config.BASE_URL}/api/division`,
       {
       	headers:new Headers({
       		'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)

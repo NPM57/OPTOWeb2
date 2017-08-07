@@ -21,7 +21,7 @@ require('chartist-plugin-tooltip');
 
 export class JobProject implements AfterViewInit{
 
-	private codeField:string="";
+	public codeField:string="";
 	public data;
 	public options;
 

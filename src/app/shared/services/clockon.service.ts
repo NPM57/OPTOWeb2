@@ -40,10 +40,10 @@ export class ClockOnService {
     )
   }
 
-clockOff(id):Observable<Response>{
+clockOff(id,finish):Observable<Response>{
     return this.http.post(
       `${this.config.BASE_URL}/api/job/`+id+'?mode=clockoff',
-      JSON.stringify({}),
+      JSON.stringify({"finish":finish}),
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)

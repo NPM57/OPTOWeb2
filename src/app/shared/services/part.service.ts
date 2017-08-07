@@ -30,7 +30,7 @@ export class PartService {
 
   getPartList(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/partgroup?web=1&group=`+id,
+      `${this.config.BASE_URL}/api/partgroup?group=`+id,
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
@@ -42,7 +42,7 @@ export class PartService {
 
   getPartByClientId(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/partgroup?web=1&client=` + id ,
+      `${this.config.BASE_URL}/api/partgroup?client=` + id ,
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
@@ -54,7 +54,7 @@ export class PartService {
 
   getPartInvoices(id: string):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/partInvoices?web=1&part=` + id ,
+      `${this.config.BASE_URL}/api/partInvoices?part=` + id ,
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)

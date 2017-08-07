@@ -4,7 +4,6 @@ import { StockService } from '../../shared/services/stock.service';
 import { DivisionService } from '../../shared/services/division.service';
 import { EmployeeService } from '../../shared/services/employee.service';
 import { MaterialService } from '../../shared/services/material.service';
-import { BinLocationService } from '../../shared/services/binlocation.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import 'style-loader!./buttons.scss';
 
@@ -29,7 +28,7 @@ export class Stock implements AfterViewInit{
 
 	constructor(private divService: DivisionService,
 	 			private empService: EmployeeService,
-	  			private binlocationService: BinLocationService,
+	  			private materialService: MaterialService,
 	   			private _elementRef : ElementRef) {
 		
 	}
@@ -54,7 +53,7 @@ export class Stock implements AfterViewInit{
 	detectBarcode(event) {
 		if($("#inputBarcode").val()!=""){
 			this.noti = ("");
-			this.binlocationService.checkItemCode(event.currentTarget.value).subscribe(res => {
+			this.materialService.checkItemCode(event.currentTarget.value).subscribe(res => {
 				if (res.json() != '') {
 					let matcode = res.json()["material_code"];
 					if (matcode != null) {

@@ -17,7 +17,7 @@ export class EmployeeService {
 
   getEmployees():Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/employee?web=1`,
+      `${this.config.BASE_URL}/api/employee`,
       {
       	headers:new Headers({
       		'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)

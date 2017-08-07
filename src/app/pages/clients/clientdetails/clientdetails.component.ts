@@ -14,13 +14,16 @@ import { PartService } from '../../../shared/services/part.service';
 import { OrderService } from '../../../shared/services/order.service';
 import { MaterialService } from '../../../shared/services/material.service';
 
-import { ChartistJsService } from './chartistJs.service';
-
 import { ClientDetailRender } from '../../../shared/render/client-detail-render.component';
 
 import * as GoogleMapsLoader from 'google-maps';
 
 import * as Chartist from 'chartist';
+
+//Must install the plugin via npm (node module) before using
+declare function require(path: string): any;
+require('chartist-plugin-legend');
+require('chartist-plugin-tooltip');
 
 @Component({
 	selector: 'client-details',
@@ -45,6 +48,8 @@ export class ClientDetails implements AfterViewInit {
 	inputDeliveryState:string;
 	inputPostalPostcode:string;
 	inputDeliveryPostcode:string;
+	public data;
+	public options;
 
 	settings1 = {
 		actions: false,
@@ -134,8 +139,7 @@ export class ClientDetails implements AfterViewInit {
 		private material_service: MaterialService,
 		private part_service: PartService, 
 		private client_service: ClientService,
-		private _elementRef:ElementRef, 
-		private _chartistJsService:ChartistJsService) {
+		private _elementRef:ElementRef) {
 		
 
 	}
@@ -143,39 +147,14 @@ export class ClientDetails implements AfterViewInit {
 	ngOnInit() {
 		var id:number;
 
-		this.route.params
-		.switchMap((params: Params) => this.client_service.getClientInvoices(params['id']))
-		.subscribe(res => {
-			
-			var items = res.json()["items"];
-			var year1 = [];
-			var year2 = [];
-			var year3 = [];
-			var year4 = [];
-			var labels = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"];
-			for(var _i = 0; _i < items.length; _i++) {
-				let item = items[_i];
-				if (item["y"] == 1) {
-					year1.push(item["total"])
-				} else if (item["y"] == 2) {
-					year2.push(item["total"])
-				} else if (item["y"] == 3) {
-					year3.push(item["total"])
-				} else {
-					year4.push(item["total"])
-				}
-			}
-			var allYear = [year1, year2, year3, year4];
-			new Chartist.Line('.ct-chart', {
-				labels: labels,
-				series: allYear
-			});
-
-		});
+		this.data = "";
+		this.options = "";
 
 		this.route.params.subscribe(params => {
 			id = params['id'];
 		});
+
+		this.clientChart(id);
 
 		this.part_service.getPartByClientId(id).subscribe(res=> {
 			this.source1.load(res.json()["items"]);
@@ -188,10 +167,110 @@ export class ClientDetails implements AfterViewInit {
 		this.material_service.getMaterialByClientId(id).subscribe(res=> {
 			this.source3.load(res.json()["items"]);
 		})
-
-		
-
 		//this.data = this._chartistJsService.getAll();
+	}
+
+	clientChart(id){
+		var check;
+		this.client_service.getClientInvoices(id)
+		.subscribe(res => {
+
+			var year1 =[];
+			var year2 =[];
+			var year3 =[];
+			var year4 =[];
+			var name =[];
+
+			var items = res.json()["items"];
+			var labels = this.labelHandle(res.json()["startMonth"])
+			check = this.checkItemEmpty(items.length);
+
+			for(var _i = 0; _i < items.length; _i++) {
+				let item = items[_i];
+				if (item["y"] == 1) {
+					year1.push(item["total"]);
+					name[0] = item["year"];
+				} else if (item["y"] == 2) {
+					year2.push(item["total"]);
+					name[1] = item["year"];
+				} else if (item["y"] == 3) {
+					year3.push(item["total"]);
+					name[2] = item["year"];
+				} else {
+					year4.push(item["total"]);
+					name[3] = item["year"];
+				}
+			}
+			var allYear = [year1, year2, year3, year4];
+			this.barChartCreate(labels,name,allYear);
+		});
+		return check;
+	}
+
+	checkItemEmpty(item_length){
+		if(item_length > 0){
+				var check=1;
+			}else{
+				var check=0;
+		}
+		return check;
+	}
+
+	labelHandle(startMonth){
+		var labels;
+		switch (startMonth) {
+			case "7":
+				return labels = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun" ];
+			case "8":
+				return labels = ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "July"];
+			case "9":
+				return labels = ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug"];
+			case "10":
+				return labels = ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" ];
+			case "11":
+				return labels = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct" ];
+			case "12":
+				return labels = ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov" ];
+			case "1":
+				return labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+			case "2":
+				return labels = ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan" ];
+			case "3":
+				return labels = ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb" ];
+			case "4":
+				return labels = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar" ];
+			case "5":
+				return labels = ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr" ];
+			case "6":
+				return labels = ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May" ];
+			
+			default:
+				// code...
+				break;
+		}
+	}
+
+	barChartCreate(labels, name, allYear){
+			this.data = {
+			  labels: labels,
+			    series: [
+			    {"name":name[0],"data":allYear[0].map(Number)},
+			   	{"name":name[1],"data":allYear[1].map(Number)},
+			   	{"name":name[2],"data":allYear[2].map(Number)},
+			   	{"name":name[3],"data":allYear[3].map(Number)},
+			  ]
+			};
+
+			new Chartist.Bar('.ct-chart', this.data,
+			{
+			 	height: '300px',
+			 	seriesBarDistance: 10,
+			 	plugins: [
+            		Chartist.plugins.legend(),
+            		Chartist.plugins.tooltip()
+       		 	],
+       		 	
+       		});
 	}
 
 	ngAfterViewInit() {

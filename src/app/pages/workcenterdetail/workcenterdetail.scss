@@ -1,0 +1,318 @@
+.basic-btns {
+  padding-top: 8px;
+  margin-bottom: -8px;
+  h5 {
+    line-height: 35px;
+    font-size: 12px;
+    &.row-sm {
+      line-height: 30px;
+    }
+    &.row-xs {
+      line-height: 22px;
+    }
+  }
+  & > .row {
+    padding-bottom: 4px;
+  }
+}
+
+.btns-row {
+  & > div {
+    margin-bottom: 12px;
+  }
+}
+
+.btns-same-width-sm {
+  .btn {
+    width: 48px;
+  }
+}
+
+.btns-same-width-md {
+  .btn {
+    width: 79px;
+  }
+}
+
+.btns-same-width-lg {
+  .btn {
+    width: 112px;
+  }
+}
+
+ul.btn-list {
+  margin: 0 0 0 -18px;
+  padding: 0;
+  padding-top: 6px;
+  clear: both;
+  li {
+    margin: 0px 0 12px 18px;
+    padding: 0;
+    list-style: none;
+    float: left;
+  }
+}
+
+.btn-group-wrapper {
+  margin-bottom: 12px;
+}
+
+$btn-icon-size: 34px;
+.btn-icon {
+  width: $btn-icon-size;
+  height: $btn-icon-size;
+  line-height: $btn-icon-size;
+  padding: 0;
+  text-align: center;
+}
+
+.btn-group-example {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 12px;
+}
+
+.btn-toolbar-example {
+  float: left;
+}
+
+.progress-buttons-container {
+  text-align: center;
+  font-size: 16px;
+  span.button-title {
+    display: inline-block;
+    width: 100%;
+    line-height: 1;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .row + .row {
+    margin-top: 30px;
+  }
+}
+
+.button-panel {
+  height: 315px;
+  .btn {
+    width: 150px;
+  }
+}
+
+.button-full-width {
+  width: 100%;
+}
+
+.large-buttons-panel {
+  height: 202px;
+}
+
+.button-panel.df-size-button-panel {
+  .btn-xs {
+    width: 60px;
+  }
+  .btn-sm {
+    width: 90px;
+  }
+  .btn-mm {
+    width: 120px;
+  }
+  .btn-md {
+    width: 150px;
+  }
+  .btn-xm {
+    width: 175px;
+  }
+  .btn-lg {
+    width: 200px;
+  }
+}
+
+.button-wrapper {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.btn-group.flex-dropdown {
+  display: flex;
+}
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "Yes";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "No";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 56px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+.emp-field{
+    padding: 10px; 
+    text-align: center;
+    width:250px;
+}
+
+.custom-field{
+    padding: 5px; 
+    text-align: center;
+    width:250px;
+}
+
+.input-custom{
+    display: table-cell;
+    width:150px;
+    padding-left:40px;
+}
+
+.input-custom2{
+    display: table-cell;
+    width:150px;
+    padding-left:40px;
+}
+
+.tick{
+    display: table-cell;
+    padding-left:5px;
+    width:22px;
+    height:22px;
+}
+
+.clockoff-button{
+    padding: 40px; 
+    text-align: center;
+    width: 600px;  
+}
+
+.clockon-button{
+    padding: 40px; 
+    text-align: center;
+    width: 600px;  
+}
+
+.select-button{
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    bottom: 0;
+    background-color: #fefefe;
+    position: relative;
+    margin: 0 auto;
+    top: 25%;
+    width: 300px;
+    height: 220px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    height: 100px;
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    float: middle;
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}

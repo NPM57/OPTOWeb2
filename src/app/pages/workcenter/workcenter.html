@@ -1,0 +1,24 @@
+<div class="widgets">
+	<div>
+		<ba-card baCardClass="with-scroll">
+			  <table class="table table-striped">
+			    <thead>
+			    <tr>
+			      <th class="table-id">#</th>
+			      <th>Work Center</th>
+			      <th>Description</th>
+			    </tr>
+			    </thead>
+			    <tbody>
+				    <tr *ngFor="let item of tableData" (click)="onRowSelect(item.WorkCenter)" >
+				      <td class="table-id"></td>
+				      <td width="200">{{ item.WorkCenter }}</td>
+				      <td>{{ item.Description }}</td>
+				    </tr>
+			    </tbody>
+			  </table>
+		</ba-card>
+	</div>
+</div>
+
+

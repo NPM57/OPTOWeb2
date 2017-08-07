@@ -141,6 +141,9 @@ export class LoginService{
        if(this.menu[0]["menu_job_total"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "jobtotal","data": {"menu": {"title": "JobTotal","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
        }
+       if(this.menu[0]["menu_workcenter"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "workcenter","data": {"menu": {"title": "WorkCenter","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
+       }
        
 
        this.menu_render_user = this.menu_render_user + ']}]';

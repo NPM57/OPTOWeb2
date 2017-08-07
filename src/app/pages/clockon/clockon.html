@@ -16,7 +16,7 @@
 					<div class="form-group" id="wc" style="display:none">
 						<label for="wc-number">Work Center</label>
 						<select style="width:100%;height:40px;background-color: #b4e391;" class="form-control" id="wc-number" >
-						  <option *ngFor='let workcenter of workcenters | async' value={{workcenter.workcenter}}>{{workcenter.workcenter_desc}}</option>
+						  <option *ngFor='let wc of workcenters' value={{wc.workcenter}}>{{wc.workcenter_desc}}</option>
 						</select>
 					</div>
 				</div>

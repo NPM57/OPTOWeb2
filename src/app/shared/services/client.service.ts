@@ -17,7 +17,7 @@ export class ClientService {
 
   getClients():Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/clients?web=1`,
+      `${this.config.BASE_URL}/api/clients`,
       {
       	headers:new Headers({
       		'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
@@ -28,7 +28,7 @@ export class ClientService {
   }
   getClientDetails(id: string):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/clients?web=1&client=` + id ,
+      `${this.config.BASE_URL}/api/clients?client=` + id ,
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
@@ -40,7 +40,7 @@ export class ClientService {
 
   getClientInvoices(id: string):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/clientInvoices?web=1&client=` + id ,
+      `${this.config.BASE_URL}/api/clientInvoices?client=` + id ,
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)

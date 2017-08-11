@@ -133,13 +133,24 @@ export class ClockOn implements AfterViewInit {
 					if(this.activate==1){
 						//check if active
 						//console.log("active");
-						if(this.clock_on==1){
+						if(this.clock_on==1&&this.job_number!=null){
 							//if already clock on --> only clock off day/job & finish job or not
 							document.getElementById('section2').style.display = 'block';
 							this.Status(event.click);
 							//console.log($("#myonoffswitch").val())
 							//console.log("clock on");
-						}else{
+						}else if(this.clock_on==1&&this.job_number==null){
+							document.getElementById('job').style.display = 'block';
+							document.getElementById('emp').style.display = 'none';
+							document.getElementById('wc').style.display = 'none';
+							(<HTMLInputElement>document.getElementById("status")).disabled = true;
+							this.status_emp="The employee: "+this.employee_name+" ("+this.employee_id+") clock on at:";
+							this.status_time="Time: "+this.clock_on_time;
+							this.status_date="Date: "+this.clock_on_date;
+							this.curr_code="";
+							this.curr_page=2;
+						}
+						else{
 							//if not clock on --> clock on and move to job screen
 							//call API clock on (send)
 							//console.log("begin to clock on");

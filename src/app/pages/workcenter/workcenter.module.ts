@@ -6,6 +6,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { routing } from './workcenter.routing';
 import { WorkCenter } from './workcenter.component';
 import { WorkCenterService } from '../../shared/services/workcenter.service'
+import { WorkCenterDetail } from '../workcenterdetail/workcenterdetail.component';
+import { ClockOnService } from '../../shared/services/clockon.service';
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import { WorkCenterService } from '../../shared/services/workcenter.service'
     WorkCenter
   ],
   providers: [
-    WorkCenterService
+    WorkCenterService,
   ]
 })
 export class WorkCenterModule {}

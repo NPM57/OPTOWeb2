@@ -19,6 +19,7 @@ import { PagesModule } from './pages/pages.module';
 
 // Auth Service
 import {AuthService} from "./shared/services/auth.service";
+import {SharedService } from './shared/services/shared.service';
 
 
 // Application wide providers
@@ -67,6 +68,7 @@ export const APPCONFIG:AppConfig = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
     AuthService,
+    SharedService,
     {provide:'APP_CONFIG_TOKEN', useValue:APPCONFIG}
   ]
 })

@@ -1,8 +1,9 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Observable } from 'rxjs/Rx';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { WorkCenterService } from '../../shared/services/workcenter.service';
+import { SharedService } from '../../shared/services/shared.service';
 
 
 @Component({
@@ -16,9 +17,9 @@ export class WorkCenter implements OnInit{
   tableData:any;
 
 
-
 	constructor(private router:Router, 
-    protected service: WorkCenterService) {
+    protected service: WorkCenterService,
+    public shared_service: SharedService) {
 		
 	}
 
@@ -29,8 +30,9 @@ export class WorkCenter implements OnInit{
     })
   }
 
-	onRowSelect(id):void{
+	onRowSelect(id,des):void{
     //debugger;
+    this.shared_service.setWorkCenterDescription(des);
     this.router.navigate(['pages/workcenterdetail', id]);    
   }
 

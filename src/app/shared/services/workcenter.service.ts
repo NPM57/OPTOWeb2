@@ -6,11 +6,13 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class WorkCenterService {
-
+    data:any
+    private description:string="";
     constructor(@Inject ('APP_CONFIG_TOKEN') private config:AppConfig, private http:Http){}
 
 
     getWorkCenterList():Observable<Response>{
+        this.data = Observable
         return this.http.get(
             `${this.config.BASE_URL}/api/workcenter`,
             {
@@ -32,6 +34,13 @@ export class WorkCenterService {
                 )
             }
             )
+    }
+
+    setDescription(des){
+        this.description = des;
+    }
+    getDescription(){
+        return this.description;
     }
     
 }

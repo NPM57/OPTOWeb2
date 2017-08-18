@@ -2,11 +2,12 @@ import {Component, ElementRef} from '@angular/core';
 import { ClockTileService } from '../../shared/services/clocktile.service';
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs/Rx';
-//import 'style-loader!./tiles.scss';
+
 
 @Component({
 	selector: 'clock-tiles',
-	templateUrl: './clocktiles.html'
+	templateUrl: './clocktiles.html',
+	styleUrls: ['./tiles.scss']
 })
 
 export class ClockTiles {
@@ -21,7 +22,11 @@ export class ClockTiles {
     	this.clocks = this.service.getClockTiles().map(response => response.json()["items"]);
 	}
 
-	button_details(event): void {
-		this.router.navigate(['pages/clocktiles/details', "a"]); 
+	button_details(job_id): void {
+		if( job_id == "No Job Start" || job_id == "No Job Start Today"){
+			alert("You need to start a job to get the detail information");
+		}else{
+			this.router.navigate(['pages/clocktiles/details', job_id]); 
+		}
 	}
 }	

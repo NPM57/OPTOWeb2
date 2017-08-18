@@ -259,7 +259,7 @@ export class ClockOn implements AfterViewInit {
 
 
 	ClockOffJob(event): void {
-		this.clockonservice.clockOff(this.employee_id,$("#myonoffswitch").val()).subscribe(res=>{
+		this.clockonservice.clockOff(this.employee_id,$("#myonoffswitch").val(),0).subscribe(res=>{
 			document.getElementById('section2').style.display = 'none';
 			this.curr_page=1;
 			this.curr_code=""
@@ -274,7 +274,7 @@ export class ClockOn implements AfterViewInit {
 	}
 
 	ClockOffDay(event): void {
-		this.clockonservice.clockOff(this.employee_id,$("#myonoffswitch").val()).subscribe(res=>{
+		this.clockonservice.clockOff(this.employee_id,$("#myonoffswitch").val(),1).subscribe(res=>{
 			document.getElementById('section2').style.display = 'none';
 			this.curr_page=1;
 			this.curr_code=""

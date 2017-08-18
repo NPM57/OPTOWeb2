@@ -43,11 +43,9 @@ export class WorkCenterDetail{
 
 	ngOnInit(){
 		this.service.getWorkCenterDetail(this.id).subscribe(res => {
-			//alert(JSON.stringify(res.json()));
-			//this.description = res.json()["items"][0]["WorkCenter"]
 			this.tableData = res.json()["items"];
 		})
-		
+
 		this.description= this.shared_service.gerWorkCenterDescription();
 
 		$("#myonoffswitch").click(function() {
@@ -153,9 +151,9 @@ export class WorkCenterDetail{
 		}else{
 			this.clockonservice.getAllInformation(this.emp_id).subscribe(res=>{
 				this.clock_on=res.json()["clocked_on"];
-				if(this.clock_on==1){
-					this.clockonservice.clockOff(this.emp_id,$("#myonoffswitch").val()).subscribe(res=>{
-						alert("Clock off Job success");
+				if(this.clock_on==1 && res.json()["job_number"]!=null){
+					this.clockonservice.clockOff(this.emp_id,$("#myonoffswitch").val(),0).subscribe(res=>{
+						alert("Clock off Job success - You can clock on another job now");
 						document.getElementById("myModal").style.display = 'none';
 						document.getElementById("tick").style.display = 'none';
 
@@ -164,8 +162,10 @@ export class WorkCenterDetail{
 							this.zero_time_begin=0;
 						})
 					})
+				}else if(this.clock_on==1 && res.json()["job_number"]==null){
+					alert("You are not clock on any jobs - You can clock off day");
 				}else{
-					alert("You have to clock on before clocking off");
+					alert("You are not clock on");
 				}
 			})
 		}
@@ -179,7 +179,7 @@ export class WorkCenterDetail{
 				this.clock_on=res.json()["clocked_on"];
 
 				if(this.clock_on==1){
-					this.clockonservice.clockOff(this.emp_id,$("#myonoffswitch").val()).subscribe(res=>{
+					this.clockonservice.clockOff(this.emp_id,$("#myonoffswitch").val(),1).subscribe(res=>{
 						alert("Clock off Day success");
 						document.getElementById("myModal").style.display = 'none';
 						document.getElementById("tick").style.display = 'none';
@@ -201,23 +201,33 @@ export class WorkCenterDetail{
 			alert('The employee id needs to be filled');
 		}else{
 			this.clockonservice.getAllInformation(this.emp_id).subscribe(res=>{
-				this.clock_on=res.json()["clocked_on"];
-				if(this.clock_on==1){
+				this.clock_on = res.json()["clocked_on"];
+				if(res.json()["job_number"]!=null){
 					alert("This employee already clocked on another job")
-
 				}else{
-					this.clockonservice.clockOn(this.emp_id).subscribe(res=>{
-						this.clockonservice.startJob(this.emp_id,this.job,this.id).subscribe(res=>{
-							let notice = res.json()["clock_message"] + res.json()["job_message"];
-							alert(notice);
+					if(this.clock_on !=1){
+						this.clockonservice.clockOn(this.emp_id).subscribe(res=>{
+							this.clockonservice.startJob(this.emp_id,this.job,this.id).subscribe(res=>{
+								let notice = res.json()["clock_message"] + res.json()["job_message"];
+								alert(notice);
 
-							this.service.getWorkCenterDetail(this.id).subscribe(res => {
-								this.tableData = res.json()["items"];
-								this.zero_time_begin=0;
+								this.service.getWorkCenterDetail(this.id).subscribe(res => {
+									this.tableData = res.json()["items"];
+									this.zero_time_begin=0;
+								})
 							})
-						})
-					});
+						});
+					}else{
+						this.clockonservice.startJob(this.emp_id,this.job,this.id).subscribe(res=>{
+								let notice = res.json()["clock_message"] + res.json()["job_message"];
+								alert(notice);
 
+								this.service.getWorkCenterDetail(this.id).subscribe(res => {
+									this.tableData = res.json()["items"];
+									this.zero_time_begin=0;
+								})
+							})
+					}
 					document.getElementById("actionDialog").style.display = 'none';
 					document.getElementById("tick2").style.display = 'none';
 				}

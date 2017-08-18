@@ -12,7 +12,7 @@
 	<!-- Modal content -->
 	<div class="modal-content">
 		<div class="modal-header">
-			<h2>Finish Job</h2>
+			<h2>Clock Off</h2>
 			<span class="close" (click)="CloseModal()">&times;</span>
 		</div>
 		<div class="modal-body">
@@ -38,7 +38,7 @@
 		</div>
 		<div class="modal-footer">
 			<div class="clockoff-button">
-				<button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffJob($event)">C/O Job</button>
+				<button id="ClockJob" class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffJob($event)">C/O Job</button>
 				<button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffDay($event)">C/O Day</button>
 			</div>
 		</div>

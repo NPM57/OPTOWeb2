@@ -25,13 +25,11 @@ export class WorkCenter implements OnInit{
 
   ngOnInit(){
     this.service.getWorkCenterList().subscribe(res => {
-        //alert(JSON.stringify(res.json()));
         this.tableData = res.json()["items"];
     })
   }
 
 	onRowSelect(id,des):void{
-    //debugger;
     this.shared_service.setWorkCenterDescription(des);
     this.router.navigate(['pages/workcenterdetail', id]);    
   }

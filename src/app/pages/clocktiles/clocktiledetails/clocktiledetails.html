@@ -1,3 +1,56 @@
 <div class="widgets">
-
+    <div>
+    	<ba-card baCardClass="with-scroll">
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="partCode">Part Code</label>
+			      <input type="text" class="form-control" id="partCode" placeholder="Part Code" [(ngModel)]="part_code">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="partDescription">Part Description</label>
+			      <input type="text" class="form-control" id="partDescription" placeholder="Part Description" [(ngModel)]="part_description">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="qty">Quantity</label>
+			      <input type="email" class="form-control" id="qty" placeholder="Quantity" [(ngModel)]="qty">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="esT">Total Time Es</label>
+			      <input type="text" class="form-control" id="esT" placeholder="Total Estimate Time" [(ngModel)]="es_time">
+			    </div>
+			  </div>
+			</div>
+		</ba-card>
+		<ba-card baCardClass="with-scroll">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th class="table-id">Ind</th>
+						<th width="50px">WC</th>
+						<th width="250px">WC Des</th>
+						<th width="50px">Process Time</th>	
+						<th>Process Title</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let process of processes; let i = index">
+					<td align="center">{{i+1}}</td>
+						<td width="50px">{{ process.WC }}</td>
+						<td width="250px">{{ process.WC_des }}</td>
+						<td align="right" width="50px">{{ process.Process_total_time }} min</td>
+						<td>{{ process.Process_title }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</ba-card>
+	</div>
 </div>

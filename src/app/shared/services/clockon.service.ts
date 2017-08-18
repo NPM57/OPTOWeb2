@@ -40,10 +40,10 @@ export class ClockOnService {
     )
   }
 
-clockOff(id,finish):Observable<Response>{
+  clockOff(id,finish,day):Observable<Response>{
     return this.http.post(
       `${this.config.BASE_URL}/api/job/`+id+'?mode=clockoff',
-      JSON.stringify({"finish":finish}),
+      JSON.stringify({"finish":finish,"day":day}),
       {
         headers:new Headers({
           'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
@@ -53,20 +53,20 @@ clockOff(id,finish):Observable<Response>{
     )
   }
 
-startJob(id,job_no,workcenter):Observable<Response>{
-  return this.http.post(
-    `${this.config.BASE_URL}/api/job/`+id+`?mode=jobstart`,
-     JSON.stringify({"jobno":job_no,"workcenter":workcenter}),
-    {
-      headers:new Headers({
-        'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
-        }
-      )
-    }
-  )
-}
+  startJob(id,job_no,workcenter):Observable<Response>{
+    return this.http.post(
+      `${this.config.BASE_URL}/api/job/`+id+`?mode=jobstart`,
+       JSON.stringify({"jobno":job_no,"workcenter":workcenter}),
+      {
+        headers:new Headers({
+          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          }
+        )
+      }
+    )
+  }
 
-getWorkCenterByJobId(id):Observable<Response>{
+  getWorkCenterByJobId(id):Observable<Response>{
     return this.http.get(
       `${this.config.BASE_URL}/api/job?job_no=`+id,
       {

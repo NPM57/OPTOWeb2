@@ -22,7 +22,11 @@ export class ProductionTiles {
     	this.productions = this.service.getProductionTiles().map(response => response.json()["tiles"]);
 	}
 
-	button_details(event): void {
-		
+	button_details(id): void {
+		// if( job_id == "No Job Start" || job_id == "No Job Start Today"){
+		// 	alert("You need to start a job to get the detail information");
+		// }else{
+			this.router.navigate(['pages/productiontiles/details', id]); 
+		//}
 	}
 }	

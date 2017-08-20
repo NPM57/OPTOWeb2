@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ProductionTiles } from './productiontiles.component'
+import { ProductionTileDetails } from './productiontiledetails/productiontiledetails.component'
 import { routing } from './productiontiles.routing'
 import { ProductionTileService } from '../../shared/services/productiontile.service';
 @NgModule({
@@ -15,7 +16,8 @@ import { ProductionTileService } from '../../shared/services/productiontile.serv
     routing
   ],
   declarations: [
-    ProductionTiles
+    ProductionTiles,
+    ProductionTileDetails
   ],
   providers: [
     ProductionTileService

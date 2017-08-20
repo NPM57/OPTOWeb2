@@ -26,4 +26,16 @@ export class ProductionTileService {
       }
     )
   }
+
+  getProductionTileDetails(id):Observable<Response>{
+    return this.http.get(
+      `${this.config.BASE_URL}/api/prdtiles/`+id,
+      {
+        headers:new Headers({
+          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          }
+        )
+      }
+    )
+  }
 }

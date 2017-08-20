@@ -1,0 +1,50 @@
+<div class="widgets">
+    <div>
+    	<ba-card baCardClass="with-scroll">
+    		<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="qty">Customner Order No</label>
+			      <input type="email" class="form-control" id="qty" placeholder="Quantity" [(ngModel)]="id">
+			    </div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="partCode">Client Name</label>
+			      <input type="text" class="form-control" id="partCode" placeholder="Part Code" [(ngModel)]="client_name">
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="form-group">
+			      <label for="partDescription">Client Code</label>
+			      <input type="text" class="form-control" id="partDescription" placeholder="Part Description" [(ngModel)]="client_code">
+			    </div>
+			  </div>
+			</div>
+		</ba-card>
+		<ba-card baCardClass="with-scroll">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th class="table-id">Ind</th>
+						<th width="250px">Part Code</th>
+						<th width="50px">Desp</th>
+						<th width="50px">Qty</th>	
+						<th>Description</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let order of orders; let i = index">
+					<td align="center">{{i+1}}</td>
+						<td width="250px">{{ order.Part_code }}</td>
+						<td width="50px">{{ order.Desp }}</td>
+						<td align="right" width="50px">{{ order.Order_qty }}</td>
+						<td>{{ order.Description }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</ba-card>
+	</div>
+</div>

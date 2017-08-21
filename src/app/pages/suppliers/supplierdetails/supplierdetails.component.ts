@@ -299,34 +299,34 @@ export class SupplierDetails implements AfterViewInit{
 			var address = res.json()["items"][0]["address1"] + "," + res.json()["items"][0]["address2"] + "," + res.json()["items"][0]["city"] + "," + res.json()["items"][0]["state"];
 			
 			// Load Google Map
-			//this.loadGoogleMap(el, address);
+			this.GoogleMap(el, address);
 		});
 	}
 
-	// loadGoogleMap(el, address) {
-	// 	GoogleMapsLoader.load((google) => {
-	// 		var map = new google.maps.Map(el, {
-	// 			center: new google.maps.LatLng(-26.9968449, 153.3178702),
-	// 			zoom: 16,
-	// 			mapTypeId: google.maps.MapTypeId.ROADMAP
-	// 		});
-	// 		var geocoder = new google.maps.Geocoder();
-	// 		this.geocodeAddress(geocoder, map, address);
-	// 	});
-	// }
+	public GoogleMap(el,address){
 
-	// geocodeAddress(geocoder, resultsMap, address) {
-	// 	geocoder.geocode({'address': address}, function(results, status) {
-	// 		if (status === 'OK') {
-	// 			resultsMap.setCenter(results[0].geometry.location);
-	// 			var marker = new google.maps.Marker({
-	// 				map: resultsMap,
-	// 				position: results[0].geometry.location
-	// 			});
-	// 		} else {
-	// 			alert('Geocode was not successful for the following reason: ' + status);
-	// 		}
-	// 	});
-	// }
+				GoogleMapsLoader.load((google) => {
+					var map = new google.maps.Map(el, {
+						center: new google.maps.LatLng(-26.9968449, 153.3178702),
+						zoom: 16,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					});
+					 var geocoder = new google.maps.Geocoder();
+					// geocodeAddress(geocoder, map, address);
+						geocoder.geocode({'address': address}, function(results, status) {
+						if (status === 'OK') {
+							map.setCenter(results[0].geometry.location);
+							GoogleMapsLoader.load((google) => {
+								var marker = new google.maps.Marker({
+									map: map,
+									position: results[0].geometry.location
+								});
+							});
+						} else {
+							alert('Geocode was not successful for the following reason: ' + status);
+						}
+					});
+				});
+		}
 
 }

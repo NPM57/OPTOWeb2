@@ -22,7 +22,8 @@ import { ProductionTileGuard } from '../shared/services/productiontile.guard'
 import { StatisticsGuard } from '../shared/services/statistics.guard'
 import { JobProjectGuard } from '../shared/services/jobproject.guard'
 import { JobTotalGuard } from '../shared/services/jobtotal.guard'
-//import { WorkCenterGuard } from '../shared/services/workcenter.guard'
+import { JobListGuard } from '../shared/services/joblist.guard'
+import { WorkCenterGuard } from '../shared/services/workcenter.guard'
 
 import { Pages } from './pages.component';
 
@@ -48,7 +49,8 @@ import { Pages } from './pages.component';
   StatisticsGuard,
   JobProjectGuard,
   JobTotalGuard,
-  //WorkCenterGuard
+  JobListGuard,
+  WorkCenterGuard
   ]
 })
 export class PagesModule {

@@ -2,20 +2,20 @@ import { Routes, RouterModule }  from '@angular/router';
 
 import { ModuleWithProviders } from '@angular/core';
 
-import { ClockTiles } from './clocktiles.component'
+import { JobList } from './joblist.component'
 
-import { ClockTileDetails } from './clocktiledetails/clocktiledetails.component'
+import { JobListDetails } from './joblistdetails/joblistdetails.component'
 
 // noinspection TypeScriptValidateTypes
 export const routes: Routes = [
 	{
 		path: '',
-		component: ClockTiles,
+		component: JobList,
 		children: [
 		//{ path: 'details', component: ClientDetails }
 		]
 	},
-	{ path: 'details/:id/:wc', component: ClockTileDetails }
+	{ path: 'details/:id', component: JobListDetails }
 ];
 
 export const routing = RouterModule.forChild(routes);

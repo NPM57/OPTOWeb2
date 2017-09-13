@@ -22,11 +22,11 @@ export class ClockTiles {
     	this.clocks = this.service.getClockTiles().map(response => response.json()["items"]);
 	}
 
-	button_details(job_id): void {
+	button_details(job_id,wc_id): void {
 		if( job_id == "No Job Start" || job_id == "No Job Start Today"){
 			alert("You need to start a job to get the detail information");
 		}else{
-			this.router.navigate(['pages/clocktiles/details', job_id]); 
+			this.router.navigate(['pages/clocktiles/details', job_id, wc_id]); 
 		}
 	}
 }	

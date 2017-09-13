@@ -10,7 +10,7 @@
 					<div *ngIf='clock.part_des != ""' class="inner">{{clock.part_des}}</div>
 				</div>
 				<div class="button-wrapper">
-					<button type="button" class="btn btn-success btn-lg button-full-width" [style.background]="clock.color" [style.border-color]="clock.color" (click)="button_details(clock.job_no,clock.current_wc)">Details</button>
+					<button type="button" class="btn btn-success btn-lg button-full-width" [style.background]="clock.color" [style.border-color]="clock.color" (click)="button_details(clock.employee_code)">Details</button>
 				</div>
 			</ba-card>
 		</div>

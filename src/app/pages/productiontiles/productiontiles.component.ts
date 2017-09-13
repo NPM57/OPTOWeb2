@@ -13,6 +13,8 @@ import {Observable} from 'rxjs/Rx';
 export class ProductionTiles {
 
 	productions: Observable<Array<any>>
+	sub_prod: Observable<Array<any>>
+	summary:number=0;
 
 	constructor(private router: Router, protected service: ProductionTileService) {
 
@@ -20,13 +22,21 @@ export class ProductionTiles {
 
 	ngOnInit() {
     	this.productions = this.service.getProductionTiles().map(response => response.json()["tiles"]);
+    	this.sub_prod=this.productions;
 	}
 
 	button_details(id): void {
-		// if( job_id == "No Job Start" || job_id == "No Job Start Today"){
-		// 	alert("You need to start a job to get the detail information");
-		// }else{
-			this.router.navigate(['pages/productiontiles/details', id]); 
-		//}
+		this.router.navigate(['pages/productiontiles/details', id]); 
+
+	}
+	summary_details(id): void {
+		this.summary = 1;
+		document.getElementsByClassName('widgets')['0'].style.display = 'none';
+		document.getElementById("summary").style.display = 'block';
+	}
+	back_state():void{
+		this.summary = 0;
+		document.getElementsByClassName('widgets')['0'].style.display = 'block';
+		document.getElementById("summary").style.display = 'none';
 	}
 }	

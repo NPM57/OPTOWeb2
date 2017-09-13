@@ -18,10 +18,10 @@ export class BinLocationService {
   
   // checkLocationBin(id: string):Observable<Response>{
   //   return this.http.get(
-  //     `${this.config.BASE_URL}/api/catalogue?web=1&bin=` + id ,
+  //     `api/catalogue?web=1&bin=` + id ,
   //     {
   //       headers:new Headers({
-  //         'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+  //         'authorization':window.sessionStorage.getItem("authorization")
   //         }
   //       )
   //     }
@@ -30,11 +30,11 @@ export class BinLocationService {
 
   sendBinLocation(json: Object):Observable<Response>{
     return this.http.post(
-      `${this.config.BASE_URL}/api/location`,
+      `api/location`,
       JSON.stringify(json),
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

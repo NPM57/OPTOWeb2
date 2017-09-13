@@ -343,7 +343,7 @@ export class ClientDetails implements AfterViewInit {
 								});
 							});
 						} else {
-							alert('Geocode was not successful for the following reason: ' + status);
+							alert('Cannot identify location since the addresses are missing ' + status);
 						}
 					});
 				});

@@ -4,6 +4,7 @@ import {Http, Headers, Response} from "@angular/http";
 import {Observable} from "rxjs";
 
 import {LoginService} from "./login.service";
+import {AppConfig} from "../../app.module";
 
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 
@@ -13,13 +14,12 @@ import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '
 export class AuthService implements CanActivate  {
 
   constructor( 
+    @Inject ('APP_CONFIG_TOKEN') private config:AppConfig, 
     private http:Http, private router: Router, private loginservice:LoginService){
-    // let user:auth={
-      //   username: this.config.APP_ID,
-      //   password: this.config.APP_PASSWORD
-      // }
-      // console.log(user);
-      // debugger;
+        // this.config.BaseURL=window.location.protocol+"//"+window.location.hostname
+        // +(window.location.port?":"+window.location.port:"");
+        // this.config.APP_ID
+        // this.config.APP_PASSWORD
 
     }
 

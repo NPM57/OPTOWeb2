@@ -23,12 +23,14 @@ export class LoginService{
     }
     
     Validate(username,password,screen_size):Observable<Response> {
+        var authorization="Basic " + btoa(username + ":" + password);
+        window.sessionStorage.setItem("authorization",authorization);
         return this.http.post(
-            `${this.config.BASE_URL}/api/login`, 
+            `api/login`, 
             JSON.stringify({"username": username, "password": password, "screen_size":screen_size}),
             {
                 headers:new Headers({
-                    'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+                    'authorization':window.sessionStorage.getItem("authorization")
                 }
                 )
 
@@ -93,23 +95,23 @@ export class LoginService{
     }
 
     getMenuRenderByUser(){
-       if(this.menu[0]["menu_order"]==1){
-           this.menu_render_user = this.menu_render_user + '{"path": "order","data": {"menu": {"title": "Order","icon": "ion-ios-cart","selected": false,"expanded": false,"order": 50}}}'
-       }
-       if(this.menu[0]["menu_part"]==1){
-           this.menu_render_user = this.menu_render_user + ',{"path": "part","data": {"menu": {"title": "Part","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
-       }
        if(this.menu[0]["menu_location"]==1){
-           this.menu_render_user = this.menu_render_user + ',{"path": "location","data": {"menu": {"title": "Location","icon": "ion-ios-box","selected": false,"expanded": false,"order": 50}}}'
-       }
-       if(this.menu[0]["menu_pallet"]==1){
-           this.menu_render_user = this.menu_render_user + ',{"path": "pallet","data": {"menu": {"title": "Pallet","icon": "ion-ios-box","selected": false,"expanded": false,"order": 50}}}'
+           this.menu_render_user = this.menu_render_user + '{"path": "location","data": {"menu": {"title": "Location","icon": "ion-ios-box","selected": false,"expanded": false,"order": 50}}}'
        }
        if(this.menu[0]["menu_location_lookup"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "locationlookup","data": {"menu": {"title": "Location Look Up","icon": "ion-ios-box","selected": false,"expanded": false,"order": 50}}}'
        }
+       if(this.menu[0]["menu_pallet"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "pallet","data": {"menu": {"title": "Pallet","icon": "ion-ios-box","selected": false,"expanded": false,"order": 50}}}'
+       }
        if(this.menu[0]["menu_pallet_lookup"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "palletlookup","data": {"menu": {"title": "Pallet Look Up","icon": "ion-ios-box","selected": false,"expanded": false,"order": 50}}}'
+       }
+       if(this.menu[0]["menu_order"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "order","data": {"menu": {"title": "Order","icon": "ion-ios-cart","selected": false,"expanded": false,"order": 50}}}'
+       }
+       if(this.menu[0]["menu_part"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "part","data": {"menu": {"title": "Part","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
        }
        if(this.menu[0]["menu_stock"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "stock","data": {"menu": {"title": "Stock","icon": "ion-cube","selected": false,"expanded": false,"order": 50}}}'
@@ -140,6 +142,9 @@ export class LoginService{
        }
        if(this.menu[0]["menu_job_total"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "jobtotal","data": {"menu": {"title": "JobTotal","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
+       }
+       if(this.menu[0]["menu_job_list"]==1){
+           this.menu_render_user = this.menu_render_user + ',{"path": "joblist","data": {"menu": {"title": "JobList","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'
        }
        if(this.menu[0]["menu_workcenter"]==1){
            this.menu_render_user = this.menu_render_user + ',{"path": "workcenter","data": {"menu": {"title": "WorkCenter","icon": "ion-wrench","selected": false,"expanded": false,"order": 50}}}'

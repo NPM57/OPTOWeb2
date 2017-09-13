@@ -17,6 +17,7 @@ export class ClockTileDetails {
 	public total_time:number;
 	public processes: any;
 	public id:string;
+	public wc_id:string;
 	public es_time:string;
 
 
@@ -30,6 +31,9 @@ export class ClockTileDetails {
 	ngOnInit() {
     	this.route.params.subscribe(params => {
 			this.id = params['id'];
+		});
+		this.route.params.subscribe(params => {
+			this.wc_id = params['wc'];
 		});
     	this.service.getClockTileDetails(this.id).subscribe(res=>{
     		this.part_code = res.json()["Part_code"];

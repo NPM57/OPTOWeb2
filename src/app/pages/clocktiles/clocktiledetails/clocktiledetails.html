@@ -43,11 +43,17 @@
 				</thead>
 				<tbody>
 					<tr *ngFor="let process of processes; let i = index">
-					<td align="center">{{i+1}}</td>
-						<td width="50px">{{ process.WC }}</td>
-						<td width="250px">{{ process.WC_des }}</td>
-						<td align="right" width="50px">{{ process.Process_total_time }} min</td>
-						<td>{{ process.Process_title }}</td>
+						<td *ngIf='wc_id==process.WC' bgcolor="#5cb85c" align="center">{{i+1}}</td>
+						<td *ngIf="process.WC == wc_id" bgcolor="#5cb85c" width="50px">{{ process.WC }}</td>
+						<td *ngIf="process.WC == wc_id" bgcolor="#5cb85c" width="250px">{{ process.WC_des }}</td>
+						<td *ngIf="process.WC == wc_id" bgcolor="#5cb85c" align="right" width="50px">{{ process.Process_total_time }} min</td>
+						<td *ngIf="process.WC == wc_id" bgcolor="#5cb85c">{{ process.Process_title }}</td>
+
+						<td *ngIf="process.WC != wc_id" align="center">{{i+1}}</td>
+						<td *ngIf="process.WC != wc_id" width="50px">{{ process.WC }}</td>
+						<td *ngIf="process.WC != wc_id" width="250px">{{ process.WC_des }}</td>
+						<td *ngIf="process.WC != wc_id" align="right" width="50px">{{ process.Process_total_time }} min</td>
+						<td *ngIf="process.WC != wc_id">{{ process.Process_title }}</td>
 					</tr>
 				</tbody>
 			</table>

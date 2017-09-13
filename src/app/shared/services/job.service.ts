@@ -17,10 +17,10 @@ export class JobService {
 
   getJobTotal(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/jobtotal?jobtotal=`+id,
+      `api/jobtotal?jobtotal=`+id,
       {
       	headers:new Headers({
-      		'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+      		'authorization':window.sessionStorage.getItem("authorization")
       		}
       	)
       }
@@ -29,10 +29,10 @@ export class JobService {
 
   getJobProject(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/jobproject?jobproject=`+id,
+      `api/jobproject?jobproject=`+id,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

@@ -17,10 +17,10 @@ export class SupplierService {
 
   getSuppliers():Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/suppliers`,
+      `api/suppliers`,
       {
       	headers:new Headers({
-      		'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+      		'authorization':window.sessionStorage.getItem("authorization")
       		}
       	)
       }
@@ -29,10 +29,10 @@ export class SupplierService {
 
   getSupplierPurchases(supplier: string):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/supplierpurchases?supplier=` + supplier + `&type=1`,
+      `api/supplierpurchases?supplier=` + supplier + `&type=1`,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -41,10 +41,10 @@ export class SupplierService {
   
   getSupplierDetails(supplier: string):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/suppliers?supplier=` + supplier,
+      `api/suppliers?supplier=` + supplier,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

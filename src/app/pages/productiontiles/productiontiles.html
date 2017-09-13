@@ -1,4 +1,8 @@
 <router-outlet></router-outlet>
+<div id="back" style="float:right;">
+<button *ngIf='summary == 1'  type="button" class="btn btn-success btn-lg button-full-width" (click)="back_state()">Back</button>
+</div>
+<hr style="clear:both;">
 <div class="widgets">
 	<div class="row show-grid ng-scope">
 		<div class="col-md-4" *ngFor='let production of productions | async' style="text-align:center;">
@@ -8,11 +12,48 @@
 					<div class="inner">{{production.status}}</div>
 				</div>
 				<div class="button-wrapper">
-					<button type="button" class="btn btn-success btn-lg button-full-width" [style.background]="production.color" [style.border-color]="production.color" (click)="button_details(production.client_order_no)">Details</button>
+					<button *ngIf='production.type != "3"'  type="button" class="btn btn-success btn-lg button-full-width" [style.background]="production.color" [style.border-color]="production.color" (click)="button_details(production.client_order_no)">Details</button>
+					<button *ngIf='production.type == "3"'  type="button" class="btn btn-success btn-lg button-full-width" [style.background]="production.color" [style.border-color]="production.color" (click)="summary_details()">Details</button>
 				</div>
-
 			</ba-card>
 		</div>
 	</div>
-
+</div>
+<div id=summary style="display:none">
+	<ba-card baCardClass="with-scroll" >
+			<table class="table table-condensed">
+				<thead >
+					<tr>
+						<th class="table-id">Type: Ready</th>
+						<th width="250px">Client Code</th>
+						<th width="50px">Client Order No</th>
+					</tr>
+				</thead>
+				<tbody >
+					<tr *ngFor='let production of productions | async ;let i = index '>
+						<td  *ngIf='production.type == "2"' align="center">{{i}}</td>
+						<td  *ngIf='production.type == "2"' width="250px">{{ production.client_code }}</td>
+						<td  *ngIf='production.type == "2"' width="50px">{{ production.client_order_no }}</td>
+					</tr>
+				</tbody>
+			</table>
+	</ba-card>
+	<ba-card baCardClass="with-scroll" >
+			<table  class="table table-condensed">
+				<thead>
+					<tr>
+						<th class="table-id">Type: Part</th>
+						<th width="250px">Client Code</th>
+						<th width="50px">Client Order No</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor='let pro of sub_prod | async ;let a = index '>
+						<td *ngIf='pro.type == "6"' align="center">{{a}}</td>
+						<td *ngIf='pro.type == "6"' width="250px">{{ pro.client_code }}</td>
+						<td *ngIf='pro.type == "6"' width="50px">{{ pro.client_order_no }}</td>
+					</tr>
+				</tbody>
+			</table>
+	</ba-card>
 </div>

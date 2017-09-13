@@ -17,11 +17,11 @@ export class PalletService {
 
   sendPallet(json: Object):Observable<Response>{
     return this.http.post(
-      `${this.config.BASE_URL}/api/pallet`,
+      `api/pallet`,
       JSON.stringify(json),
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

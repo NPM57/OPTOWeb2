@@ -19,7 +19,8 @@ import { ProductionTileGuard } from '../shared/services/productiontile.guard'
 import { StatisticsGuard } from '../shared/services/statistics.guard'
 import { JobTotalGuard } from '../shared/services/jobtotal.guard'
 import { JobProjectGuard } from '../shared/services/jobproject.guard'
-//import { WorkCenterGuard } from '../shared/services/workcenter.guard'
+import { JobListGuard } from '../shared/services/joblist.guard'
+import { WorkCenterGuard } from '../shared/services/workcenter.guard'
 
 // noinspection TypeScriptValidateTypes
 
@@ -39,7 +40,7 @@ export const routes: Routes = [
     canActivate: [AuthService],
     component: Pages,
     children: [
-      { path: '', redirectTo: 'order',canActivate: [AuthService], pathMatch: 'full' },
+      { path: '', redirectTo: 'location',canActivate: [LocationGuard], pathMatch: 'full' },
     
       { path: 'location',canActivate: [LocationGuard], loadChildren: 'app/pages/location/binlocation.module#BinLocationModule' },
       { path: 'pallet',canActivate: [PalletGuard], loadChildren: 'app/pages/pallet/pallet.module#PalletModule' },
@@ -51,9 +52,11 @@ export const routes: Routes = [
       { path: 'jobproject',canActivate: [JobProjectGuard], loadChildren: 'app/pages/jobproject/jobproject.module#JobProjectModule' },
       { path: 'jobtotal',canActivate: [JobTotalGuard], loadChildren: 'app/pages/jobtotal/jobtotal.module#JobTotalModule' },
 
-      { path: 'workcenter', loadChildren: 'app/pages/workcenter/workcenter.module#WorkCenterModule' },
-      { path: 'workcenterdetail/:id', loadChildren: 'app/pages/workcenterdetail/workcenterdetail.module#WorkCenterDetailModule' },
+      { path: 'workcenter',canActivate: [WorkCenterGuard], loadChildren: 'app/pages/workcenter/workcenter.module#WorkCenterModule' },
+      { path: 'workcenterdetail/:id',canActivate: [WorkCenterGuard], loadChildren: 'app/pages/workcenterdetail/workcenterdetail.module#WorkCenterDetailModule' },
 
+      { path: 'joblist',canActivate: [JobListGuard], loadChildren: 'app/pages/joblist/joblist.module#JobListModule' },
+      
       { path: 'material',canActivate: [MaterialGuard], loadChildren: 'app/pages/material/material.module#MaterialModule' },
       { path: 'materialslist/:id',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialslist/materialslist.module#MaterialsListModule' },
       { path: 'materialdetail/:code',canActivate: [MaterialGuard], loadChildren: 'app/pages/materialdetail/materialdetail.module#MaterialDetailModule' },

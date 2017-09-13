@@ -23,7 +23,7 @@ import { layoutPaths } from './theme/theme.constants';
 export class App {
 
   isMenuCollapsed: boolean = false;
-
+  
   constructor(private _state: GlobalState,
               private _imageLoader: BaImageLoaderService,
               private _spinner: BaThemeSpinner,

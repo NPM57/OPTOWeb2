@@ -26,7 +26,7 @@ export class Login {
   constructor(fb:FormBuilder, private loginservice: LoginService,private router:Router, private route: ActivatedRoute, ) {
     this.form = fb.group({
       'username': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
       'binlocation': false,
       'stock': false
     });
@@ -57,7 +57,7 @@ export class Login {
                     this.router.navigate(['pages/location']);
                   }
                   else if(this.binlocation.value ==false){
-                    this.router.navigate(['pages/order']);
+                    this.router.navigate(['pages/location']);
                   }else{
                     this.router.navigate(['login']);
                   }

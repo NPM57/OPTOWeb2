@@ -35,15 +35,16 @@ export type StoreType = {
 };
 
 export interface AppConfig {
-  BASE_URL:string,
-  APP_ID:string,
-  APP_PASSWORD:string
+  BaseURL:string
 }
 
-export const APPCONFIG:AppConfig = {
-  BASE_URL: 'http://192.168.222.13:8000',
-  APP_ID: 'OPTO',
-  APP_PASSWORD: 'opto',
+export function getBaseURL(){
+   return window.location.protocol+"//"+window.location.hostname+(window.location.port?":"+window.location.port:"")
+   //return "http://192.168.222.13"
+}
+
+export var APPCONFIG:AppConfig = {
+  BaseURL:getBaseURL()
 };
 
 /**
@@ -69,7 +70,7 @@ export const APPCONFIG:AppConfig = {
     APP_PROVIDERS,
     AuthService,
     SharedService,
-    {provide:'APP_CONFIG_TOKEN', useValue:APPCONFIG}
+     {provide:'APP_CONFIG_TOKEN', useValue:APPCONFIG}
   ]
 })
 

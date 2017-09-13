@@ -13,10 +13,10 @@ export class WorkCenterService {
 
     getWorkCenterList():Observable<Response>{
         return this.http.get(
-            `${this.config.BASE_URL}/api/workcenter`,
+            `api/workcenter`,
             {
                 headers:new Headers({
-                    'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+                    'authorization':window.sessionStorage.getItem("authorization")
                 }
                 )
             }
@@ -25,10 +25,10 @@ export class WorkCenterService {
 
     getWorkCenterDetail(id):Observable<Response>{
         return this.http.get(
-            `${this.config.BASE_URL}/api/workcenter/`+id,
+            `api/workcenter/`+id,
             {
                 headers:new Headers({
-                    'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+                    'authorization':window.sessionStorage.getItem("authorization")
                 }
                 )
             }

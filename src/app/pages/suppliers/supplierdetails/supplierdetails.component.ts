@@ -260,7 +260,6 @@ export class SupplierDetails implements AfterViewInit{
 			   	{"name":name[3],"data":allYear[3].map(Number)},
 			  ]
 			};
-			console.log(this.data)
 			new Chartist.Bar('.ct-chart', this.data,
 			{
 			 	height: '300px',
@@ -282,10 +281,12 @@ export class SupplierDetails implements AfterViewInit{
 			this.inputSupplierName = res.json()["items"][0]["supplier_name"];
 			this.inputEmail = res.json()["items"][0]["email"];
 			this.inputWebsite = res.json()["items"][0]["web_site"];
+
 			this.inputPostalAddress1 = res.json()["items"][0]["address"];
 			this.inputDeliveryAddress1 = res.json()["items"][0]["address_1"];
 			this.inputPostalAddress2 = res.json()["items"][0]["addr1"];
 			this.inputDeliveryAddress2 = res.json()["items"][0]["addr2"];
+
 			this.inputPostalCity = res.json()["items"][0]["suburb"];
 			this.inputDeliveryCity = res.json()["items"][0]["city_1"];
 			this.inputPostalState = res.json()["items"][0]["state"];
@@ -296,7 +297,8 @@ export class SupplierDetails implements AfterViewInit{
 			this.inputDeliveryCountry = res.json()["items"][0]["postcode_1"];
 			
 			// Address
-			var address = res.json()["items"][0]["address1"] + "," + res.json()["items"][0]["address2"] + "," + res.json()["items"][0]["city"] + "," + res.json()["items"][0]["state"];
+			var address = res.json()["items"][0]["address"] + "," + res.json()["items"][0]["addr1"] + "," 
+			+ res.json()["items"][0]["city_1"] + "," + res.json()["items"][0]["state"];
 			
 			// Load Google Map
 			this.GoogleMap(el, address);
@@ -312,7 +314,7 @@ export class SupplierDetails implements AfterViewInit{
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					});
 					 var geocoder = new google.maps.Geocoder();
-					// geocodeAddress(geocoder, map, address);
+				
 						geocoder.geocode({'address': address}, function(results, status) {
 						if (status === 'OK') {
 							map.setCenter(results[0].geometry.location);
@@ -323,7 +325,7 @@ export class SupplierDetails implements AfterViewInit{
 								});
 							});
 						} else {
-							alert('Geocode was not successful for the following reason: ' + status);
+							alert('Cannot identify location since the addresses are missing ' + status);
 						}
 					});
 				});

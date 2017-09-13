@@ -18,10 +18,10 @@ export class PalletLookUpService {
   //Input Loc to get Pallet and Job (record) in Pallet table
   getPalletRecByLoc(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/palletlookup?loc=` + id ,
+      `api/palletlookup?loc=` + id ,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -31,10 +31,10 @@ export class PalletLookUpService {
   //Input Job to get Pallet and Loc (record) in Pallet table
   getPalletRecByJob(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/palletlookup?job=` + id ,
+      `api/palletlookup?job=` + id ,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -44,10 +44,10 @@ export class PalletLookUpService {
   //Input Pallet to get Job and Loc (record) in Pallet table
   getPalletRecByPallet(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/palletlookup?pallet=` + id ,
+      `api/palletlookup?pallet=` + id ,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

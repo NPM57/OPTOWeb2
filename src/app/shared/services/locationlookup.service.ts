@@ -17,10 +17,10 @@ export class LocationLookUpService {
 
   getLocationByMaterialId(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/searchlocation?barcode=` + id ,
+      `api/searchlocation?barcode=` + id ,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

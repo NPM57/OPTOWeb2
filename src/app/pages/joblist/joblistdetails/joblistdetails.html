@@ -1,0 +1,122 @@
+<div>
+	<div class="float-left">
+		<h1>{{id}}: {{description}}</h1>
+	</div>
+	<div class="float-right">
+		<button style="height:40px;width:100px" class="status-button btn btn-xs btn-warning" (click)="ModalTrigger()">Clock Off</button>
+	</div>
+	<div class="float-right">
+		<button style="height:40px;width:100px" class="status-button btn btn-xs btn-warning" (click)="TopClockOn()">Clock On</button>
+	</div>
+</div>
+<hr style="clear:both;">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<h2>Clock Off</h2>
+			<span class="close" (click)="CloseModal()">&times;</span>
+		</div>
+		<div class="modal-body">
+			<div class="emp-field">
+				<div class="input-custom">
+					<input type="text" id="emp" name="emp" [(ngModel)]="emp_id">
+				</div>
+				<div class="tick">
+					<span id="tick">&#x2705;</span>
+				</div>
+			</div>
+			<div class="row show-grid ng-scope">
+				<div class="select-button">
+					<div class="onoffswitch">
+						<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" data-id="1" id="myonoffswitch" value=0>
+						<label class="onoffswitch-label" for="myonoffswitch">
+							<span class="onoffswitch-inner"></span>
+							<span class="onoffswitch-switch"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="clockoff-button">
+				<button id="ClockJob" class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffJob($event)">C/O Job</button>
+				<button class="btn btn-sq btn-warning" style="width:80px;height:50px" (click)="ClockOffDay($event)">C/O Day</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- The Modal -->
+<div id="actionDialog" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<h2>Clock On</h2>
+			<span class="close" (click)="CloseView()">&times;</span>
+		</div>
+		<div class="modal-body">
+			<div class="custom-field">
+				<input type="text" id="job" name="job" [(ngModel)]="job" disabled>
+			</div>
+			<div class="custom-field">
+				<input type="text" id="wc" name="wc" [(ngModel)]="id" disabled>
+			</div>
+			<div class="emp-field">
+				<div class="input-custom2">
+					<input type="text" id="emp2" name="emp2" [(ngModel)]="emp_id">
+				</div>
+				<div class="tick">
+					<span id="tick2">&#x2705;</span>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="clockon-button">
+				<button class="btn btn-sq btn-warning" style="width:100px;height:50px" (click)="ClockOn()">Clock On</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="widgets">
+	<div>
+		<ba-card baCardClass="with-scroll">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th class="table-id">Ind</th>
+						<th>JobTicket</th>
+						<th>Description</th>
+						<th>Qty</th>
+						<th>PartCode</th>
+						<th>DueDate</th>
+						<th>NextProcess</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of tableData; let i = index">
+					<td align="center">{{i+1}}</td>
+						<td>{{ item.JobTicket }}</td>
+						<td>{{ item.Description }}</td>
+						<td align="right">{{ item.Quantity }}</td>
+						<td>{{ item.PartCode }}</td>
+						<td>{{ item.DueDate }}</td>
+						<td>{{ item.NextProcess }}</td>
+						<td>
+							<div *ngIf='item.Status == "Ready"' class="status-button btn btn-xs btn-success">{{ item.Status }}</div>
+							<div *ngIf='item.Status == "Started"' class="status-button btn btn-xs btn-warning">{{ item.Status }}</div>
+							<div *ngIf='item.Status == "Waiting"' class="status-button btn btn-xs btn-danger">{{ item.Status }}</div>
+						</td>
+						<td><button class="status-button btn btn-xs btn-info" (click)='ViewAction(item.JobTicket)'>View</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</ba-card>
+	</div>
+</div>
+
+

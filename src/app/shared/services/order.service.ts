@@ -17,10 +17,10 @@ export class OrderService {
 
   getOrder():Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/salesorder`,
+      `api/salesorder`,
       {
       	headers:new Headers({
-      		'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+      		'authorization':window.sessionStorage.getItem("authorization")
       		}
       	)
       }
@@ -30,10 +30,10 @@ export class OrderService {
 
   getOrderDetail(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/salesorder?order=`+id,
+      `api/salesorder?order=`+id,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -42,10 +42,10 @@ export class OrderService {
 
   getOrderByClientId(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/salesorder?client=` + id ,
+      `api/salesorder?client=` + id ,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

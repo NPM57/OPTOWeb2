@@ -17,10 +17,10 @@ export class ClockOnService {
 
   getAllInformation(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/job/`+id,
+      `api/job/`+id,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -29,11 +29,11 @@ export class ClockOnService {
 
   clockOn(id):Observable<Response>{
     return this.http.post(
-      `${this.config.BASE_URL}/api/job/`+id+'?mode=clockon',
+      `api/job/`+id+'?mode=clockon',
        JSON.stringify({}),
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -42,11 +42,11 @@ export class ClockOnService {
 
   clockOff(id,finish,day):Observable<Response>{
     return this.http.post(
-      `${this.config.BASE_URL}/api/job/`+id+'?mode=clockoff',
+      `api/job/`+id+'?mode=clockoff',
       JSON.stringify({"finish":finish,"day":day}),
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -55,11 +55,11 @@ export class ClockOnService {
 
   startJob(id,job_no,workcenter):Observable<Response>{
     return this.http.post(
-      `${this.config.BASE_URL}/api/job/`+id+`?mode=jobstart`,
+      `api/job/`+id+`?mode=jobstart`,
        JSON.stringify({"jobno":job_no,"workcenter":workcenter}),
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }
@@ -68,10 +68,10 @@ export class ClockOnService {
 
   getWorkCenterByJobId(id):Observable<Response>{
     return this.http.get(
-      `${this.config.BASE_URL}/api/job?job_no=`+id,
+      `api/job?job_no=`+id,
       {
         headers:new Headers({
-          'authorization':"Basic " + btoa(this.config.APP_ID + ":" + this.config.APP_PASSWORD)
+          'authorization':window.sessionStorage.getItem("authorization")
           }
         )
       }

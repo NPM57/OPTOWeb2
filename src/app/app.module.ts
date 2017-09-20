@@ -39,8 +39,8 @@ export interface AppConfig {
 }
 
 export function getBaseURL(){
-   return window.location.protocol+"//"+window.location.hostname+(window.location.port?":"+window.location.port:"")
-   //return "http://192.168.222.13"
+   //return window.location.protocol+"//"+window.location.hostname+(window.location.port?":"+window.location.port:"")
+   return "http://192.168.222.13:8095"
 }
 
 export var APPCONFIG:AppConfig = {

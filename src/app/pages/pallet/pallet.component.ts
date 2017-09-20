@@ -16,6 +16,7 @@ export class Pallet implements AfterViewInit{
 	inputJob:string='';
 	inout:number=1;
 	type:number;
+	clearmode:number=0;
 
 	constructor(private service: PalletService) {
 		
@@ -33,8 +34,13 @@ export class Pallet implements AfterViewInit{
 	focusLoc($event) {
         if (($event.which == 13 || $event.keyCode == 13)) {
         	if($event.target.value != ""){
-	           $( "#inputBinLocation" ).focus();
-	       }
+        		if(this.clearmode==0){
+	           		$( "#inputBinLocation" ).focus();
+	       		}
+	       		else{
+	       			$( "#inputPallet" ).val +",";
+	       		}
+	       	}
         }
     }
 
@@ -52,6 +58,7 @@ export class Pallet implements AfterViewInit{
 	           $("#inputJob").blur();
     	}
 	}
+
 
 	radio_stock(event) {    
 		this.currentRadio = event.currentTarget.defaultValue;
@@ -75,6 +82,16 @@ export class Pallet implements AfterViewInit{
 			document.getElementById('PalletToLocation').style.display = 'none';
 			document.getElementById('JobToPallet').style.display = 'block';
 			$( "#inputPallet2" ).focus();
+		}
+	}
+
+	ClearMode() {
+		if(this.currentRadio=="PalletToLocation"){
+			this.clearmode=1;
+			document.getElementById("inputPallet").style.display='none';
+		}else{
+			this.clearmode=1;
+			document.getElementById("inputPallet2").style.display='none';
 		}
 	}
 
@@ -106,6 +123,16 @@ export class Pallet implements AfterViewInit{
 				$( "#inputPallet" ).focus();
 				$( "#inputPallet2" ).focus();
 			}
+		}
+	}
+
+	EmptyPalletFromLocation(){
+		let json = {
+			"type":this.type,
+			"pallet_code": this.inputPallet,
+			"bin_location" : this.inputBinLocation.toUpperCase(),
+			"job":this.inputJob,
+			"action" : this.inout,
 		}
 	}
 

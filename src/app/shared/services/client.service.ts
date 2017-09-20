@@ -17,7 +17,8 @@ export class ClientService {
 
   getClients():Observable<Response>{
     return this.http.get(
-      `api/clients`,
+      `http://192.168.222.13:8095/api/clients`,
+      //'api/clients',
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -28,7 +29,8 @@ export class ClientService {
   }
   getClientDetails(id: string):Observable<Response>{
     return this.http.get(
-      `api/clients?client=` + id ,
+      `http://192.168.222.13:8095/api/clients?client=` + id ,
+      //'api/clients?client=` + id ',
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -40,7 +42,8 @@ export class ClientService {
 
   getClientInvoices(id: string):Observable<Response>{
     return this.http.get(
-      `api/clientInvoices?client=` + id ,
+      `http://192.168.222.13:8095/api/clientInvoices?client=` + id ,
+      //'api/clientInvoices?client=` + id ',
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

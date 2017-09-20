@@ -17,7 +17,8 @@ export class ProductionTileService {
 
   getProductionTiles():Observable<Response>{
     return this.http.get(
-      `api/prdtiles`,
+      `http://192.168.222.13:8095/api/prdtiles`,
+      //api/prdtiles`,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -29,7 +30,8 @@ export class ProductionTileService {
 
   getProductionTileDetails(id):Observable<Response>{
     return this.http.get(
-      `api/prdtiles/`+id,
+      `http://192.168.222.13:8095/api/prdtiles/`+id,
+      //api/prdtiles/`+id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

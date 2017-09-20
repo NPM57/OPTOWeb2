@@ -17,7 +17,8 @@ export class SupplierService {
 
   getSuppliers():Observable<Response>{
     return this.http.get(
-      `api/suppliers`,
+      `http://192.168.222.13:8095/api/suppliers`,
+      //`api/suppliers`,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -29,7 +30,8 @@ export class SupplierService {
 
   getSupplierPurchases(supplier: string):Observable<Response>{
     return this.http.get(
-      `api/supplierpurchases?supplier=` + supplier + `&type=1`,
+      `http://192.168.222.13:8095/api/supplierpurchases?supplier=` + supplier + `&type=1`,
+      //`api/supplierpurchases?supplier=` + supplier + `&type=1`,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -41,7 +43,8 @@ export class SupplierService {
   
   getSupplierDetails(supplier: string):Observable<Response>{
     return this.http.get(
-      `api/suppliers?supplier=` + supplier,
+      `http://192.168.222.13:8095/api/suppliers?supplier=` + supplier,
+      //`api/suppliers?supplier=` + supplier,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

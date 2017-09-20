@@ -17,7 +17,22 @@ export class PalletService {
 
   sendPallet(json: Object):Observable<Response>{
     return this.http.post(
-      `api/pallet`,
+      `http://192.168.222.13:8095/api/pallet`,
+      // `api/pallet`,
+      JSON.stringify(json),
+      {
+        headers:new Headers({
+          'authorization':window.sessionStorage.getItem("authorization")
+          }
+        )
+      }
+    )
+  }
+
+  deletePallet(json: Object):Observable<Response>{
+    return this.http.post(
+      `http://192.168.222.13:8095/api/palletdelete`,
+      // `api/palletdelete`,
       JSON.stringify(json),
       {
         headers:new Headers({

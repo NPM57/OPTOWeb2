@@ -13,7 +13,8 @@ export class WorkCenterService {
 
     getWorkCenterList():Observable<Response>{
         return this.http.get(
-            `api/workcenter`,
+            `http://192.168.222.13:8095/api/workcenter`,
+            //`api/workcenter`,
             {
                 headers:new Headers({
                     'authorization':window.sessionStorage.getItem("authorization")
@@ -25,7 +26,8 @@ export class WorkCenterService {
 
     getWorkCenterDetail(id):Observable<Response>{
         return this.http.get(
-            `api/workcenter/`+id,
+            `http://192.168.222.13:8095/api/workcenter/`+id,
+            //`api/workcenter/`+id,
             {
                 headers:new Headers({
                     'authorization':window.sessionStorage.getItem("authorization")

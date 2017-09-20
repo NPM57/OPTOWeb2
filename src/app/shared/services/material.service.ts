@@ -17,7 +17,8 @@ export class MaterialService {
 
     getMaterialCatalogue():Observable<Response>{
     return this.http.get(
-      `api/catalogue`,
+      `http://192.168.222.13:8095/api/catalogue`,
+      //`api/catalogue`, 
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -28,7 +29,8 @@ export class MaterialService {
   }
   getMaterialGroup():Observable<Response>{
     return this.http.get(
-      `api/matgroup`,
+      `http://192.168.222.13:8095/api/matgroup`,
+      //`api/matgroup`, 
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -40,7 +42,8 @@ export class MaterialService {
 
    getMaterialList(id):Observable<Response>{
     return this.http.get(
-      `api/matgroup/`+id,
+      `http://192.168.222.13:8095/api/matgroup/`+id,
+      //`api/matgroup/`+id, 
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -52,7 +55,8 @@ export class MaterialService {
 
   getMaterialDetails(id):Observable<Response>{
     return this.http.get(
-      `api/catalogue?matcode=` + id ,
+      `http://192.168.222.13:8095/api/catalogue?matcode=` + id ,
+      //`api/catalogue?matcode=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -64,7 +68,8 @@ export class MaterialService {
 
   getMaterialByClientId(id):Observable<Response>{
     return this.http.get(
-      `api/catalogue?client=` + id ,
+      `http://192.168.222.13:8095/api/catalogue?client=` + id ,
+      //`api/catalogue?client=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -76,7 +81,8 @@ export class MaterialService {
 
   getMaterialIdByLocationId(id):Observable<Response>{
     return this.http.get(
-      `api/searchbarcode?location=` + id ,
+      `http://192.168.222.13:8095/api/searchbarcode?location=` + id ,
+      //`api/searchbarcode?location=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -88,7 +94,8 @@ export class MaterialService {
 
   getMaterialInvoice(material:string):Observable<Response>{
     return this.http.get(
-      `api/materialinvoice?mat=` + material,
+      `http://192.168.222.13:8095/api/materialinvoice?mat=` + material,
+      //`api/materialinvoice?mat=` + material,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -100,7 +107,8 @@ export class MaterialService {
 
   checkItemCode(id: string):Observable<Response>{
     return this.http.get(
-      `api/catalogue?barcode=` + id,
+      `http://192.168.222.13:8095/api/catalogue?barcode=` + id,
+      //`api/catalogue?barcode=` + id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

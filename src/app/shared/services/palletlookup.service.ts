@@ -18,7 +18,8 @@ export class PalletLookUpService {
   //Input Loc to get Pallet and Job (record) in Pallet table
   getPalletRecByLoc(id):Observable<Response>{
     return this.http.get(
-      `api/palletlookup?loc=` + id ,
+      `http://192.168.222.13:8095/api/palletlookup?loc=` + id ,
+      //`api/palletlookup?loc=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -31,7 +32,8 @@ export class PalletLookUpService {
   //Input Job to get Pallet and Loc (record) in Pallet table
   getPalletRecByJob(id):Observable<Response>{
     return this.http.get(
-      `api/palletlookup?job=` + id ,
+      `http://192.168.222.13:8095/api/palletlookup?job=` + id ,
+      //`api/palletlookup?job=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -44,7 +46,8 @@ export class PalletLookUpService {
   //Input Pallet to get Job and Loc (record) in Pallet table
   getPalletRecByPallet(id):Observable<Response>{
     return this.http.get(
-      `api/palletlookup?pallet=` + id ,
+      `http://192.168.222.13:8095/api/palletlookup?pallet=` + id ,
+      //`api/palletlookup?pallet=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

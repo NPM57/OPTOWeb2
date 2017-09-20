@@ -18,7 +18,8 @@ export class PartService {
   
   getPartGroup():Observable<Response>{
     return this.http.get(
-      `api/partgroup`,
+      `http://192.168.222.13:8095/api/partgroup`,
+      //`api/partgroup`,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -30,7 +31,8 @@ export class PartService {
 
   getPartList(id):Observable<Response>{
     return this.http.get(
-      `api/partgroup?group=`+id,
+      `http://192.168.222.13:8095/api/partgroup?group=`+id,
+      //`api/partgroup?group=`+id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -42,7 +44,8 @@ export class PartService {
 
   getPartByClientId(id):Observable<Response>{
     return this.http.get(
-      `api/partgroup?client=` + id ,
+      `http://192.168.222.13:8095/api/partgroup?client=` + id ,
+      //`api/partgroup?client=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -54,7 +57,8 @@ export class PartService {
 
   getPartInvoices(id: string):Observable<Response>{
     return this.http.get(
-      `api/partInvoices?part=` + id ,
+      `http://192.168.222.13:8095/api/partInvoices?part=` + id ,
+      //`api/partInvoices?part=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

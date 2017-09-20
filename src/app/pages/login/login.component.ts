@@ -23,7 +23,8 @@ export class Login {
   private menu;
   private screen_size:number;
 
-  constructor(fb:FormBuilder, private loginservice: LoginService,private router:Router, private route: ActivatedRoute, ) {
+  constructor(fb:FormBuilder, private loginservice: LoginService,
+    private router:Router, private route: ActivatedRoute, ) {
     this.form = fb.group({
       'username': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
@@ -37,7 +38,6 @@ export class Login {
   }
 
     
-
   public onSubmit(values:Object):void {
     (<HTMLInputElement>document.getElementById('submit')).disabled=true;
     if (this.form.valid ) {
@@ -48,7 +48,6 @@ export class Login {
             if(this.loginservice.Login(this.username.value,this.password.value,this.menu)){
               this.validate =true;
               if(this.validate){
-                 
                 if( screen.width>420){
                   if(this.stock.value){
                     this.router.navigate(['pages/stock']);

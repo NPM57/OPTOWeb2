@@ -17,7 +17,8 @@ export class ClockTileService {
 
   getClockTiles():Observable<Response>{
     return this.http.get(
-      `api/clockon`,
+      `http://192.168.222.13:8095/api/clockon`,
+      //`api/clockon`,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -30,7 +31,8 @@ export class ClockTileService {
 
     getClockTileDetails(id):Observable<Response>{
     return this.http.get(
-      `api/clocktiles/`+id,
+      `http://192.168.222.13:8095/api/clocktiles/`+id,
+      //`api/clocktiles/`+id`,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

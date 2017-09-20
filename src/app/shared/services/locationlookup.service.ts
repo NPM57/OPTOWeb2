@@ -17,7 +17,8 @@ export class LocationLookUpService {
 
   getLocationByMaterialId(id):Observable<Response>{
     return this.http.get(
-      `api/searchlocation?barcode=` + id ,
+      `http://192.168.222.13:8095/api/searchlocation?barcode=` + id ,
+      //`api/searchlocation?barcode=` + id ,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

@@ -17,7 +17,8 @@ export class ClockOnService {
 
   getAllInformation(id):Observable<Response>{
     return this.http.get(
-      `api/job/`+id,
+      `http://192.168.222.13:8095/api/job/`+id,
+      //`api/job/`+id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -29,7 +30,8 @@ export class ClockOnService {
 
   clockOn(id):Observable<Response>{
     return this.http.post(
-      `api/job/`+id+'?mode=clockon',
+      `http://192.168.222.13:8095/api/job/`+id+'?mode=clockon',
+      //api/job/`+id+'?mode=clockon',
        JSON.stringify({}),
       {
         headers:new Headers({
@@ -42,7 +44,8 @@ export class ClockOnService {
 
   clockOff(id,finish,day):Observable<Response>{
     return this.http.post(
-      `api/job/`+id+'?mode=clockoff',
+      `http://192.168.222.13:8095/api/job/`+id+'?mode=clockoff',
+      //`api/job/`+id+'?mode=clockoff',
       JSON.stringify({"finish":finish,"day":day}),
       {
         headers:new Headers({
@@ -55,7 +58,8 @@ export class ClockOnService {
 
   startJob(id,job_no,workcenter):Observable<Response>{
     return this.http.post(
-      `api/job/`+id+`?mode=jobstart`,
+      `http://192.168.222.13:8095/api/job/`+id+`?mode=jobstart`,
+      //`api/job/`+id+`?mode=jobstart`,
        JSON.stringify({"jobno":job_no,"workcenter":workcenter}),
       {
         headers:new Headers({
@@ -68,7 +72,8 @@ export class ClockOnService {
 
   getWorkCenterByJobId(id):Observable<Response>{
     return this.http.get(
-      `api/job?job_no=`+id,
+      `http://192.168.222.13:8095/api/job?job_no=`+id,
+      //`api/job?job_no=`+id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

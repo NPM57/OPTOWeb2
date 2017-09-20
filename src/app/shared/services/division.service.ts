@@ -17,7 +17,8 @@ export class DivisionService {
 
   getDivisions():Observable<Response>{
     return this.http.get(
-      `api/division`,
+      `http://192.168.222.13:8095/api/division`,
+      //`api/division`,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -29,7 +30,7 @@ export class DivisionService {
   // }
   // checkLocationBin(id: string):Observable<Response>{
   //   return this.http.get(
-  //     `api/catalogue?web=1&bin=` + id ,
+  //     `http://192.168.222.13:8095/api/catalogue?web=1&bin=` + id ,
   //     {
   //       headers:new Headers({
   //         'authorization':window.sessionStorage.getItem("authorization")
@@ -41,7 +42,7 @@ export class DivisionService {
 
   // sendBinLocation(json: Object):Observable<Response>{
   //   return this.http.post(
-  //     `api/location`,
+  //     `http://192.168.222.13:8095/api/location`,
   //     JSON.stringify(json),
   //     {
   //       headers:new Headers({

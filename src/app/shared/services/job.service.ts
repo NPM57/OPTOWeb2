@@ -17,7 +17,8 @@ export class JobService {
 
   getJobTotal(id):Observable<Response>{
     return this.http.get(
-      `api/jobtotal?jobtotal=`+id,
+      `http://192.168.222.13:8095/api/jobtotal?jobtotal=`+id,
+      //`api/jobtotal?jobtotal=`+id,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -29,7 +30,8 @@ export class JobService {
 
   getJobProject(id):Observable<Response>{
     return this.http.get(
-      `api/jobproject?jobproject=`+id,
+      `http://192.168.222.13:8095/api/jobproject?jobproject=`+id,
+      //`api/jobproject?jobproject=`+id,,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

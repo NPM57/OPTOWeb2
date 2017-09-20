@@ -16,10 +16,6 @@ export class AuthService implements CanActivate  {
   constructor( 
     @Inject ('APP_CONFIG_TOKEN') private config:AppConfig, 
     private http:Http, private router: Router, private loginservice:LoginService){
-        // this.config.BaseURL=window.location.protocol+"//"+window.location.hostname
-        // +(window.location.port?":"+window.location.port:"");
-        // this.config.APP_ID
-        // this.config.APP_PASSWORD
 
     }
 

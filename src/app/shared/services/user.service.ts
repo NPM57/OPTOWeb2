@@ -12,7 +12,8 @@ export class UserService {
 
     getUserList():Observable<Response>{
         return this.http.get(
-            `api/users`,
+            `http://192.168.222.13:8095/api/users`,
+            //`api/users`,
             {
                 headers:new Headers({
                     'authorization':window.sessionStorage.getItem("authorization")

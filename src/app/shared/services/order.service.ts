@@ -17,7 +17,8 @@ export class OrderService {
 
   getOrder():Observable<Response>{
     return this.http.get(
-      `api/salesorder`,
+      `http://192.168.222.13:8095/api/salesorder`,
+      //`api/salesorder`,
       {
       	headers:new Headers({
       		'authorization':window.sessionStorage.getItem("authorization")
@@ -30,7 +31,8 @@ export class OrderService {
 
   getOrderDetail(id):Observable<Response>{
     return this.http.get(
-      `api/salesorder?order=`+id,
+      `http://192.168.222.13:8095/api/salesorder?order=`+id,
+      //`api/salesorder?order=`+id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")
@@ -42,7 +44,8 @@ export class OrderService {
 
   getOrderByClientId(id):Observable<Response>{
     return this.http.get(
-      `api/salesorder?client=` + id ,
+      `http://192.168.222.13:8095/api/salesorder?client=` + id,
+      //`api/salesorder?client=` + id,
       {
         headers:new Headers({
           'authorization':window.sessionStorage.getItem("authorization")

@@ -5,7 +5,6 @@ import {Observable} from "rxjs";
 import {Router} from '@angular/router';
 
 
-
 @Injectable()
 
 export class LoginService{
@@ -19,23 +18,21 @@ export class LoginService{
 
     constructor(@Inject ('APP_CONFIG_TOKEN') private config:AppConfig, private http:Http, private router: Router){
 
-
     }
     
     Validate(username,password,screen_size):Observable<Response> {
         var authorization="Basic " + btoa(username + ":" + password);
         window.sessionStorage.setItem("authorization",authorization);
         return this.http.post(
-            `api/login`, 
+            `http://192.168.222.13:8095/api/login`, 
+            //`api/login`, 
             JSON.stringify({"username": username, "password": password, "screen_size":screen_size}),
             {
                 headers:new Headers({
                     'authorization':window.sessionStorage.getItem("authorization")
                 }
                 )
-
             })
-
     }
 
     Login(username:string, password:string, menu:any):boolean{
